@@ -44,20 +44,29 @@ Once the guidelines reached the first level of stability, invite additional expe
 We consider public data deposition as a vital requirement for any published study. Therefore:
 
 
-Name: Raw data is deposited in a public repository
-Category: Bronze
-Description:
-Fields: all
-
-
-Name: Experimental design is deposited in a public repository
-Category: Bronze
-Description:  An accompanying file is made available which describes the experimental design in terms of sample id per raw file / isobaric channel, and fraction identifier, as well as any additional factors relevant to the experiment. This file should be deposited alongside the data in the public repository or must alternatively be submitted as a supplementary file with the manuscript.This file should indicate factors potentially relevant to batch effects (f.e. machine id, lab id, run date and time). If supported, this information should be made available using the repository’s standard method
+Name: Raw data is deposited in a public repository  
+Category: Bronze  
+Description:  
 Fields: all  
 
 
-The identifier of the data submission is mentioned in the manuscript.
-This data must be available for review at the time of submission and must be available publically at the time of publication.
+Name: Experimental design is deposited in a public repository  
+Category: Bronze  
+Description:  An accompanying file is made available which describes the experimental design in terms of sample id per raw file / isobaric channel, and fraction identifier, as well as any additional factors relevant to the experiment. This file should be deposited alongside the data in the public repository or must alternatively be submitted as a supplementary file with the manuscript.This file should indicate factors potentially relevant to batch effects (f.e. machine id, lab id, run date and time). If supported, this information should be made available using the repository’s standard method  
+Fields: all    
+
+
+Name: The identifier of the data submission is mentioned in the manuscript  
+Category: Bronze
+Description: 
+Fields: all   
+
+
+Name: The data must be available for review at the time of submission and must be available publically at the time of publication  
+Category: Bronze
+Description:   
+Fields: all  
+
 
 Silver:
 Linked to matched data, e.g. transcriptomics is provided
