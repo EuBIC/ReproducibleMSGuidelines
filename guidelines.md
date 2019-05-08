@@ -3,11 +3,9 @@
 
 European Bioinformatics Community
 
-
-## Title: Minimal Guidelines for Reproducible MS-based Research
-
-### Version: v0.1
-### Authors: Johannes Griss, Yasset Perez-Riverol
+## Title: Minimal Guidelines for Reproducible MS-based Research
+## Version: v0.1
+## Authors: Johannes Griss, Yasset Perez-Riverol
 
 
 
