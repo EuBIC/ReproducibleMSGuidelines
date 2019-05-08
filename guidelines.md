@@ -31,14 +31,14 @@ All items are grouped into three categories:
 Additionally, all requirements are organized in content blocks. These blocks are then tagged based on which experimental technique they are applicable to. The idea behind this approach is to create reusable blocks that can be integrated into other guidelines as well. The current guidelines are design for the following biomedical research fields: 
 
 - Proteomics 
-- Proteomics Genomics 
-- MetaProteomics 
+- ProteoGenomics* 
 - Metabolomics 
 - Mass Spectrometry Imaging 
 - Lipidomics 
-- Meta-Analysis* 
 
-* A metanalysis of any of the specific fields can be consider as an agrregation/reanalysis of previously published data. 
+**ProteoGenomics** can be considered a specific subfield of MS-based proteomics studies in which more complex analysis are performed.
+ 
+Some of the rules are design for **metanalysis** manuscripts. A metanalysis manuscript is the agregation/reanalysis of previously published data. 
 
 The guidelines are organized by sections (e.g. Public Data Deposition). Each section provides a checklist of information that must (**Bronze**), should (**Silver**) or could (**Gold**) be provided for each specific technology. If one of the items in the checklist is applied to only a specific set of MS-based technologies, it will be mentioned and tag specifically.
 
@@ -53,7 +53,6 @@ Once the guidelines reached the first level of stability, invite additional expe
 ### Public Data Deposition
 
 We consider public data deposition as a vital requirement for any published study. Therefore:
-
 
 Name: Raw data is deposited in a public repository  
 Category: Bronze  
@@ -91,13 +90,13 @@ Description: The processed results files (ie. search result files indicating ide
 Fields: all   
 
 
-Name: The identifiers of all reanalyzed datasets are mentioned in the manuscript    
+Name: For metanalysis papers, the identifiers of all reanalyzed datasets are mentioned in the manuscript    
 Category: Bronze    
 Description: For meta-analysis manuscripts where multiple public datasets are reanalyzed with a different approach or bioinformatics workflow, the identifier and the publication of each of these datasets should be cited in the manuscript.    
-Fields: Meta-analysis  
+Fields: all  
 
 
-Name: The data repository is part of [ProteomeXchange](http://www.proteomexchange.org/)
+Name: The data repository is part of [ProteomeXchange](http://www.proteomexchange.org/)  
 Category: Bronze  
 Description:    
 Fields:  Proteomics, ProteoGenomics    
@@ -109,40 +108,64 @@ Description:
 Fields: Proteomics, ProteoGenomics  
 
 
-
-Gold:
-The mass spectra are provided in the HUPO-PSI standard file format mzML.
-The identification information (PSMs / Petides / Proteins) are provided in the HUPO-PSI format mzIdentML or mzTab.
-The Quantitative information of is made available in the mzTab file format.
-Samples are annotated with metadata within the HUPO-PSI files (mzTab) or other standards for experimental design such as IsaTab.
-If spectral libraries are used for protein identification, the libraries should be deposited in the public repository. If the libraries are provided by one of the ProteomeXchange partners the Identifier of the library should be added to the manuscript.
-
-If the paper (also) contains reprocessed public datasets,
-
-Gold:
-The public repository is part of the ProteomeXChange consortium.
+Name: The mass spectra are provided in the HUPO-PSI standard file format mzML.  
+Category: Gold   
+Description:    
+Fields: Proteomics, ProteoGenomics, Metabolomics  
 
 
-ProteoGenomics
-
-ProteoGenomics can be considered a specific subfield of MS-based proteomics studies in which more complex analysis are performed. Therefore, more data should be provided in order to reproduce the original results:
-
-Bronze:
-The custom (FASTA) database generated from the genomics information should be provided.
-The identifier to the genomics (e.g. GWAS or RNA-seq) dataset is cited in the manuscript
-
-MS-based Metabolomics
-
-Bronze:
-Data should be deposited in one of the following archives: Metabolights, MassIVE
+Name: The identification information (PSMs / Petides / Proteins) are provided in the HUPO-PSI format mzIdentML or mzTab.  
+Category: Gold  
+Description:  
+Fields: Proteomics, ProteoGenomics  
 
 
+Name: The Quantitative information of is made available in the mzTab file format.  
+Category: Gold  
+Description:   
+Fields: Proteomics, ProteoGenomics  
 
 
-Bioinformatics  Analysis  Description
+Name: Samples are annotated with metadata within the HUPO-PSI files (mzTab) or other standards for experimental design such as IsaTab.  
+Category: Gold  
+Description:  
+Fields: Proteomics, ProteoGenomics, Metabolomics
+
+
+Name: The spectral library should be public. 
+Category: Gold  
+Description: If spectral libraries are used for protein identification, the libraries should be deposited in the public repository. If the libraries are provided by one of the ProteomeXchange partners the Identifier of the library should be added to the manuscript.  
+Fields: Proteomics, ProteoGenomics 
+
+
+Name: All the reprocessed datasets in a metanalysis should be public in a ProteomeXchange partner  
+Category: Gold  
+Description:   
+Fields: Proteomics, ProteoGenomics 
+
+
+Name: The custom (FASTA) database generated from the genomics information should be provided.
+Category: Bronze  
+Description:    
+Fields: ProteoGenomics    
+
+
+Name: The identifier to the genomics (e.g. GWAS or RNA-seq) dataset is cited in the manuscript.
+Category: Bronze  
+Description:  
+Fields: ProteoGenomics 
+
+
+Name: Data should be deposited in one of the following archives: Metabolights, MassIVE  
+Category: Silver
+Description:   
+Fields: Metabolomics
+
+
+### Bioinformatics  Analysis  Description
+
 This section refers to the requirements of how the bioinformatic analysis should be described in a manuscript.
-General
-Bioinformatics (all)
+
 Bronze
 All used software is named including the exact version and the availability (ie. download link for public software or reference to the company)
 Any non-publicly available / custom scripts (for example R, Python, MatLab, Perl scripts) are available to the reviewers
