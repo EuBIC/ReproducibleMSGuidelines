@@ -166,68 +166,219 @@ Fields: Metabolomics
 
 This section refers to the requirements of how the bioinformatic analysis should be described in a manuscript.
 
-Bronze
-All used software is named including the exact version and the availability (ie. download link for public software or reference to the company)
-Any non-publicly available / custom scripts (for example R, Python, MatLab, Perl scripts) are available to the reviewers
-Newly developed or closed-source in-house developed software (software developed by the authors / research group / institute) is made available to the reviewers for testing.
-If the software is made publically available, downloads for specific versions of the software are provided, which include the exact version used in the manuscript
-All external resources (UniProt, GO, Ensembl, Reactome, etc.) are referenced and the version/release date/date of access documented.
-The operating system and its version under which the analysis was carried out is specified
-Silver
-Newly developed software/custom scripts are made publically available and deposited to a public code hosting platform (ie. GitHub, Bitbucket, GitLab)
-A README file is provided that specifies the system requirements, installation guide, and instructions for use
-Gold
-The used software version can be identified through a DOI (for example through https://zenodo.org)
-For newly developed software: a description how to run and what to expect from provided demo data is distributed with the software
-Workflow Software (ie. ProteomeDiscoverer, Galaxy, OpenMS)
-Bioinformatics (all)
-Bronze
-If a workflow software was used, the workflow file is made available at the time of review
-Silver
-Workflow files are deposited in the same repository as the public data or the software (for example as a test suite to a software package) or submitted as supplementary data
-RAW File Processing
-MS-based Proteomics
-Bronze
-If RAW file processing was performed by a separate tool, this tool including all settings are described
-This should include all settings for signal detection (such as MS and MS/MS peak picking, deisotoping, feature detection) settings if available
-The tool is publically available or alternatively, the peak picked data is deposited alongside the RAW data
-Search
-MS-based Proteomics
-Bronze
-The database used including the exact version/date of download (if a release version is not available) are described
-The method used to create a decoy database is specified
-If a custom (ie. non-publicly available) database was used, this database is deposited in the public repository or submitted as supplementary data
-This includes databases, where decoy databases were generated using randomization
-The search engine(s) including their exact versions is/are specified
-All relevant, non-default settings, such as precursor ion tolerance, fragment ion tolerance, in-silico digestion rule (ie. enzyme), allowed missed cleavages, static and variable post-translational modifications are specified
-The methods used to determine the identification false discovery rates (at PSM, peptide and/or protein levels) and the respective thresholds are specified
-Silver
-When available, the used parameter/configuration file is deposited alongside the data in a public repository or alternatively submitted as supplementary data.
-Manual curation
-MS-based Proteomics
-Bronze
-If the data were manually curated (for example using Skyline) the curated dataset is deposited alongside the RAW data in a public repository
-Gold
-Un-curated data is made available alongside the final one
-Quantification
-MS-based Quantitative Proteomics
-Bronze
-The software used to extract quantitative values (for example precursor intensities, reporter ion intensities etc) including its parameters and version is specified
-The method used to aggregate PSM level quantitative values on the peptide and protein levels is specified
-The method used to perform normalisation is specified including at which level this normalisation was performed (PSM, peptide, or protein)
-The method used to filter and/or impute missing values is specified including at which level this filtering/imputation was performed (PSM, peptide, or protein)
-Statistical Analysis
-Bioinformatics (all)
-Bronze
-The software used to perform the statistical analysis (ie. differential expression analysis) is specified including its version
-The method used to determine the sample size and the power of the study is specified (if applicable)
-Any statistical test is named (including its parameters such as one- or two-sided, paired or unpaired) and the resulting p-value/threshold specified
-The method used to correct for multiple testing is specified if applicable. If correction for multiple testing was not performed, this needs to be explicitly justified.
-If software such as R, Python, or MatLab is used for the analysis, all used packages including their versions are specified or provided as a supplementary file
-If any filtering was applied / measurement(s) excluded either manually or as part of the software algorithms, this must be clearly stated.
-Silver
-If the software supports the export of the statistical analysis steps (for example R scripts) these are made available for review
-Any transformation of data (e.g. log transformation) manually or as part of a software function/test is specified including the order that these transformations were performed.
+
+Name: All used software is named including the exact version and the availability (ie. download link for public software or reference to the company)  
+Category: Bronze  
+Description:  
+Fields: all  
+
+
+Name: Any non-publicly available / custom scripts (for example R, Python, MatLab, Perl scripts) are available to the reviewers
+Category: Bronze  
+Description:  
+Fields: all  
+
+Name: Newly developed or closed-source in-house developed software (software developed by the authors / research group / institute) is made available to the reviewers for testing
+Category: Bronze  
+Description:  
+Fields: all 
+
+Name: If the software is made publically available, downloads for specific versions of the software are provided, which include the exact version used in the manuscript
+Category: Bronze  
+Description:  
+Fields: all  
+
+Name: All external resources (UniProt, GO, Ensembl, Reactome, etc.) are referenced and the version/release date/date of access documented 
+Category: Bronze  
+Description:  
+Fields: all 
+
+
+Name: The operating system and its version under which the analysis was carried out is specified
+Category: Bronze  
+Description:  
+Fields: all  
+
+
+Name: Newly developed software/custom scripts are made publically available and deposited to a public code hosting platform (ie. GitHub, Bitbucket, GitLab)
+Category: Silver  
+Description:  
+Fields: all 
+
+
+Name: A README file is provided that specifies the system requirements, installation guide, and instructions for use
+Category: Silver  
+Description:  
+Fields: all 
+
+
+
+Name: The used software version can be identified through a DOI (for example through https://zenodo.org)  
+Category: Bold  
+Description:   
+Fields: all    
+
+
+Name: For newly developed software: a description how to run and what to expect from provided demo data is distributed with the software  
+Category: Bold  
+Description:   
+Fields: all  
+
+
+### Workflow Software (ie. ProteomeDiscoverer, Galaxy, OpenMS)
+
+
+Name: If a workflow software was used, the workflow file is made available at the time of review  
+Category: Bronze  
+Description:   
+Fields:  all   
+
+
+Name: Workflow files are deposited in the same repository as the public data or the software (for example as a test suite to a software package) or submitted as supplementary data   
+Category: Silver  
+Description:    
+Fields: all   
+
+### RAW File Processing
+
+
+Name: If RAW file processing was performed by a separate tool, this tool including all settings are described  
+Category: Bronze 
+Description: This should include all settings for signal detection (such as MS and MS/MS peak picking, deisotoping, feature detection) settings if available  
+Fields: all  
+
+Name: The tool is publically available or alternatively, the peak picked data is deposited alongside the RAW data  
+Category: Bronze  
+Description:  
+Fields: all 
+
+### Search MS-based Proteomics
+
+Name: The database used including the exact version/date of download (if a release version is not available) are described  
+Category: Bronze    
+Description:   
+Fields: Proteomics, ProteoGenomics  
+
+
+Name: The method used to create a decoy database is specified  
+Category: Bronze   
+Description:   
+Fields: Proteomics, ProteoGenomics  
+
+
+Name: If a custom (ie. non-publicly available) database was used, this database is deposited in the public repository or submitted as supplementary data  
+Category: Bronze  
+Description:  This includes databases, where decoy databases were generated using randomization  
+Fields:  Proteomics, ProteoGenomics 
+
+
+Name: The search engine(s) including their exact versions is/are specified  
+Category: Bronze  
+Description:  
+Fields: Proteomics, ProteoGenomics
+
+
+Name: All relevant, non-default settings, such as precursor ion tolerance, fragment ion tolerance, in-silico digestion rule (ie. enzyme), allowed missed cleavages, static and variable post-translational modifications are specified  
+Category: Bronze  
+Description:  
+Fields: Proteomics, ProteoGenomics  
+
+
+Name: The methods used to determine the identification false discovery rates (at PSM, peptide and/or protein levels) and the respective thresholds are specified
+Category: Bronze   
+Description:   
+Fields: Proteomics, ProteoGenomics 
+
+
+Name: When available, the used parameter/configuration file is deposited alongside the data in a public repository or alternatively submitted as supplementary data.
+Category: Silver  
+Description:  
+Fields: Proteomics, ProteoGenomics  
+
+
+###  Manual curation
+
+Name: If the data were manually curated (for example using Skyline) the curated dataset is deposited alongside the RAW data in a public repository
+Category: Bronze  
+Description:  
+Fields: all 
+
+
+Name: Un-curated data is made available alongside the final one
+Category: Gold  
+Description:   
+Fields: all 
+
+
+### MS-based Quantitative
+
+Name: The software used to extract quantitative values (for example precursor intensities, reporter ion intensities etc) including its parameters and version is specified  
+Category: Bronze  
+Description:  
+Fields: Proteomics, ProteoGenomics 
+
+
+Name: The method used to aggregate PSM level quantitative values on the peptide and protein levels is specified
+Category: Bronze 
+Description:  
+Fields: Proteomics, ProteoGenomics  
+
+
+Name: The method used to perform normalisation is specified including at which level this normalisation was performed (PSM, peptide, or protein)
+Category: Bronze 
+Description:  
+Fields: Proteomics, ProteoGenomics  
+
+
+Name: The method used to filter and/or impute missing values is specified including at which level this filtering/imputation was performed (PSM, peptide, or protein)
+Category: Bronze  
+Description:  
+Fields: Proteomics, ProteoGenomics  
+
+### Statistical Analysis
+
+Name: The software used to perform the statistical analysis (ie. differential expression analysis) is specified including its version
+Category: Bronze
+Description:  
+Fields: Proteomics, ProteoGenomics  
+
+
+Name: The method used to determine the sample size and the power of the study is specified (if applicable)
+Category: Bronze  
+Description:  
+Fields: Proteomics, ProteoGenomics   
+
+
+Name: Any statistical test is named (including its parameters such as one- or two-sided, paired or unpaired) and the resulting p-value/threshold specified
+Category: Bronze  
+Description:   
+Fields: Proteomics, ProteoGenomics  
+
+
+Name: The method used to correct for multiple testing is specified if applicable. If correction for multiple testing was not performed, this needs to be explicitly justified.
+Category: Bronze  
+Description:  
+Fields: Proteomics, ProteoGenomics  
+
+
+Name: If software such as R, Python, or MatLab is used for the analysis, all used packages including their versions are specified or provided as a supplementary file  
+Category: Bronze   
+Description:  
+Fields: Proteomics, ProteoGenomics 
+
+
+Name: If any filtering was applied / measurement(s) excluded either manually or as part of the software algorithms, this must be clearly stated  
+Category: Bronze  
+Description:  
+Fields: Proteomics, ProteoGenomics  
+
+
+Name: If the software supports the export of the statistical analysis steps (for example R scripts) these are made available for review  
+Category: Silver 
+Description:  
+Fields: Proteomics, ProteoGenomics  
+
+Name: Any transformation of data (e.g. log transformation) manually or as part of a software function/test is specified including the order that these transformations were performed.
 If a model with multiple parameters is created, the formula for the said model is declared.
 Gold
 If the software supports the export of the statistical analysis steps (for example R scripts) these are submitted as supplementary data
