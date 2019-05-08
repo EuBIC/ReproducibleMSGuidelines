@@ -33,7 +33,7 @@ We are currently working on a more user-friendly web-based rendering of these gu
 
 ## Who can contribute?
 
-Everyone! The creation of this guidelines as a completely community-driven project.
+Everyone! The creation of this guidelines as a completely community-driven project. [How to contribute](https://github.com/ypriverol/ReproducibleMSGuidelines/blob/master/CONTRIBUTING.md) 
 
 ## How can I contribute?
 
