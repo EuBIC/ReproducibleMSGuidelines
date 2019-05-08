@@ -132,34 +132,34 @@ Description:
 Fields: Proteomics, ProteoGenomics, Metabolomics
 
 
-Name: The spectral library should be public. 
-Category: Gold  
-Description: If spectral libraries are used for protein identification, the libraries should be deposited in the public repository. If the libraries are provided by one of the ProteomeXchange partners the Identifier of the library should be added to the manuscript.  
-Fields: Proteomics, ProteoGenomics 
+Name: The spectral library should be public   
+Category: Gold   
+Description: If spectral libraries are used for protein identification, the libraries should be deposited in the public repository. If the libraries are provided by one of the ProteomeXchange partners the Identifier of the library should be added to the manuscript    
+Fields: Proteomics, ProteoGenomics  
 
 
 Name: All the reprocessed datasets in a metanalysis should be public in a ProteomeXchange partner  
 Category: Gold  
 Description:   
-Fields: Proteomics, ProteoGenomics 
+Fields: Proteomics, ProteoGenomics  
 
 
-Name: The custom (FASTA) database generated from the genomics information should be provided.
+Name: The custom (FASTA) database generated from the genomics information should be provided  
 Category: Bronze  
 Description:    
 Fields: ProteoGenomics    
 
 
-Name: The identifier to the genomics (e.g. GWAS or RNA-seq) dataset is cited in the manuscript.
+Name: The identifier to the genomics (e.g. GWAS or RNA-seq) dataset is cited in the manuscript  
 Category: Bronze  
 Description:  
-Fields: ProteoGenomics 
+Fields: ProteoGenomics  
 
 
 Name: Data should be deposited in one of the following archives: Metabolights, MassIVE  
-Category: Silver
-Description:   
-Fields: Metabolomics
+Category: Silver   
+Description:     
+Fields: Metabolomics  
 
 
 ### Bioinformatics  Analysis  Description
@@ -167,43 +167,43 @@ Fields: Metabolomics
 This section refers to the requirements of how the bioinformatic analysis should be described in a manuscript.
 
 
-Name: All used software is named including the exact version and the availability (ie. download link for public software or reference to the company)  
-Category: Bronze  
-Description:  
-Fields: all  
+Name: All used software is named including the exact version and the availability (ie. download link for public software or reference to the company)    
+Category: Bronze    
+Description:    
+Fields: all   
 
 
-Name: Any non-publicly available / custom scripts (for example R, Python, MatLab, Perl scripts) are available to the reviewers
-Category: Bronze  
-Description:  
-Fields: all  
+Name: Any non-publicly available / custom scripts (for example R, Python, MatLab, Perl scripts) are available to the reviewers    
+Category: Bronze   
+Description:   
+Fields: all   
 
-Name: Newly developed or closed-source in-house developed software (software developed by the authors / research group / institute) is made available to the reviewers for testing
-Category: Bronze  
-Description:  
-Fields: all 
+Name: Newly developed or closed-source in-house developed software (software developed by the authors / research group / institute) is made available to the reviewers for testing    
+Category: Bronze     
+Description:    
+Fields: all    
 
-Name: If the software is made publically available, downloads for specific versions of the software are provided, which include the exact version used in the manuscript
-Category: Bronze  
-Description:  
-Fields: all  
+Name: If the software is made publically available, downloads for specific versions of the software are provided, which include the exact version used in the manuscript    
+Category: Bronze     
+Description:       
+Fields: all    
 
-Name: All external resources (UniProt, GO, Ensembl, Reactome, etc.) are referenced and the version/release date/date of access documented 
-Category: Bronze  
-Description:  
-Fields: all 
-
-
-Name: The operating system and its version under which the analysis was carried out is specified
-Category: Bronze  
-Description:  
-Fields: all  
+Name: All external resources (UniProt, GO, Ensembl, Reactome, etc.) are referenced and the version/release date/date of access documented    
+Category: Bronze    
+Description:      
+Fields: all   
 
 
-Name: Newly developed software/custom scripts are made publically available and deposited to a public code hosting platform (ie. GitHub, Bitbucket, GitLab)
-Category: Silver  
-Description:  
-Fields: all 
+Name: The operating system and its version under which the analysis was carried out is specified    
+Category: Bronze     
+Description:    
+Fields: all    
+
+
+Name: Newly developed software/custom scripts are made publically available and deposited to a public code hosting platform (ie. GitHub, Bitbucket, GitLab)     
+Category: Silver    
+Description:    
+Fields: all   
 
 
 Name: A README file is provided that specifies the system requirements, installation guide, and instructions for use
