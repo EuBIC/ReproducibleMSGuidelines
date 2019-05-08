@@ -378,8 +378,29 @@ Category: Silver
 Description:  
 Fields: Proteomics, ProteoGenomics  
 
-Name: Any transformation of data (e.g. log transformation) manually or as part of a software function/test is specified including the order that these transformations were performed.
-If a model with multiple parameters is created, the formula for the said model is declared.
-Gold
-If the software supports the export of the statistical analysis steps (for example R scripts) these are submitted as supplementary data
-Underlying data for all figures (where applicable) is made available
+
+Name: Any transformation of data (e.g. log transformation) manually or as part of a software function/test is specified including the order that these transformations were performed  
+Category: Silver  
+Description:  
+Fields: Proteomics, ProteoGenomics  
+
+
+Name: If a model with multiple parameters is created, the formula for the said model is declared  
+Category: Silver  
+Description:   
+Fields: Proteomics, ProteoGenomics  
+
+
+Name: If the software supports the export of the statistical analysis steps (for example R scripts) these are submitted as supplementary data  
+Category: Gold 
+Description:  
+Fields: Proteomics, ProteoGenomics 
+
+
+Name: Underlying data for all figures (where applicable) is made available  
+Category: Gold  
+Desciprtion:   
+Fields: Proteomics, ProteoGenomics 
+
+
+
