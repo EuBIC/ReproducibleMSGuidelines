@@ -57,15 +57,15 @@ Fields: all
 
 
 Name: The identifier of the data submission is mentioned in the manuscript  
-Category: Bronze
-Description: 
-Fields: all   
+Category: Bronze  
+Description:   
+Fields: all     
 
 
 Name: The data must be available for review at the time of submission and must be available publically at the time of publication  
-Category: Bronze
-Description:   
-Fields: all  
+Category: Bronze  
+Description:     
+Fields: all    
 
 
 Silver:
