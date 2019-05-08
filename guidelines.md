@@ -28,9 +28,20 @@ All items are grouped into three categories:
 
 **Gold**: Fully documented consideration of all bioinformatics aspects.
 
-Additionally, all requirements are organized in content blocks. These blocks are then tagged based on which experimental technique they are applicable to. The idea behind this approach is to create reusable blocks that can be integrated into other guidelines as well.
+Additionally, all requirements are organized in content blocks. These blocks are then tagged based on which experimental technique they are applicable to. The idea behind this approach is to create reusable blocks that can be integrated into other guidelines as well. The current guidelines are design for the following biomedical research fields: 
+
+- Proteomics 
+- Proteomics Genomics 
+- MetaProteomics 
+- Metabolomics 
+- Mass Spectrometry Imaging 
+- Lipidomics 
+- Meta-Analysis* 
+
+* A metanalysis of any of the specific fields can be consider as an agrregation/reanalysis of previously published data. 
 
 The guidelines are organized by sections (e.g. Public Data Deposition). Each section provides a checklist of information that must (**Bronze**), should (**Silver**) or could (**Gold**) be provided for each specific technology. If one of the items in the checklist is applied to only a specific set of MS-based technologies, it will be mentioned and tag specifically.
+
 
 ## Open Points
 
@@ -68,23 +79,36 @@ Description:
 Fields: all    
 
 
-Silver:
-Linked to matched data, e.g. transcriptomics is provided
-Processed data (ie. search result files indicating identified PSMs, peptides, and proteins) is deposited in the same repository.
+Name: Linked to matched data, e.g. transcriptomics is provided  
+Category: Silver  
+Description:  
+Fields: all   
 
-For meta-analysis and the papers that contain reprocessed public datasets:
-Bronze:
-the identifiers of all datasets are mentioned in the manuscript
-the original publication(s) is cited. This includes preprints.
-Silver:
-The reprocessed data (ie. search result files) is submitted to a public repository
 
-MS-based Proteomics and ProteoGenomics
-Bronze:
-The data repository is part of ProteomeXchange (http://www.proteomexchange.org/)
+Name: The Processed data is deposited in a public repository  
+Category: Silver    
+Description: The processed results files (ie. search result files indicating identified PSMs, peptides, and proteins) is deposited in the same repository.  
+Fields: all   
 
-Silver:
-Acquisition method files are made available together with the Raw data.
+
+Name: The identifiers of all reanalyzed datasets are mentioned in the manuscript    
+Category: Bronze    
+Description: For meta-analysis manuscripts where multiple public datasets are reanalyzed with a different approach or bioinformatics workflow, the identifier and the publication of each of these datasets should be cited in the manuscript.    
+Fields: Meta-analysis  
+
+
+Name: The data repository is part of [ProteomeXchange](http://www.proteomexchange.org/)
+Category: Bronze  
+Description:    
+Fields:  Proteomics, ProteoGenomics    
+
+
+Name: Acquisition method files are made available together with the Raw data     
+Category: Silver  
+Description:    
+Fields: Proteomics, ProteoGenomics  
+
+
 
 Gold:
 The mass spectra are provided in the HUPO-PSI standard file format mzML.
