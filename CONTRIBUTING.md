@@ -42,7 +42,7 @@ opened using [this form](https://github.com/jgriss/ReproducibleMSGuidelines/issu
 
 ## Ideas
 
-BioContainers's [BioContainers Specification and Design](http://github.com/jgriss/ReproducibleMSGuidelines/issues) is filled with comments and ideas
+The [MS-based Research Reproducible Guidelines](http://github.com/jgriss/ReproducibleMSGuidelines/issues) is filled with comments and ideas 
 for enhancements and we believe would make the best entry points for new contributors.
 
 ## Handling Pull Requests
