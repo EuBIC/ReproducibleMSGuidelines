@@ -173,10 +173,10 @@ Description:
 Fields: all   
 
 
-Name: Any non-publicly available / custom scripts (for example R, Python, MatLab, Perl scripts) are available to the reviewers    
-Category: Bronze   
-Description:   
-Fields: all   
+Name: Any non-publicly available / custom scripts (for example R, Python, MatLab, Perl scripts) are available to the reviewers      
+Category: Bronze      
+Description:      
+Fields: all    
 
 Name: Newly developed or closed-source in-house developed software (software developed by the authors / research group / institute) is made available to the reviewers for testing    
 Category: Bronze     
