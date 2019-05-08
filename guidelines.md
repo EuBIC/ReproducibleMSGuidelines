@@ -242,10 +242,10 @@ Fields: all
 ### RAW File Processing
 
 
-Name: If RAW file processing was performed by a separate tool, this tool including all settings are described  
-Category: Bronze 
-Description: This should include all settings for signal detection (such as MS and MS/MS peak picking, deisotoping, feature detection) settings if available  
-Fields: all  
+Name: If RAW file processing was performed by a separate tool, this tool including all settings are described   
+Category: Bronze    
+Description: This should include all settings for signal detection (such as MS and MS/MS peak picking, deisotoping, feature detection) settings if available    
+Fields: all    
 
 Name: The tool is publically available or alternatively, the peak picked data is deposited alongside the RAW data  
 Category: Bronze  
@@ -284,105 +284,105 @@ Description:
 Fields: Proteomics, ProteoGenomics  
 
 
-Name: The methods used to determine the identification false discovery rates (at PSM, peptide and/or protein levels) and the respective thresholds are specified
+Name: The methods used to determine the identification false discovery rates (at PSM, peptide and/or protein levels) and the respective thresholds are specified    
 Category: Bronze   
+Description:    
+Fields: Proteomics, ProteoGenomics    
+
+
+Name: When available, the used parameter/configuration file is deposited alongside the data in a public repository or alternatively submitted as supplementary data   
+Category: Silver   
 Description:   
-Fields: Proteomics, ProteoGenomics 
-
-
-Name: When available, the used parameter/configuration file is deposited alongside the data in a public repository or alternatively submitted as supplementary data.
-Category: Silver  
-Description:  
-Fields: Proteomics, ProteoGenomics  
+Fields: Proteomics, ProteoGenomics   
 
 
 ###  Manual curation
 
-Name: If the data were manually curated (for example using Skyline) the curated dataset is deposited alongside the RAW data in a public repository
-Category: Bronze  
-Description:  
-Fields: all 
-
-
-Name: Un-curated data is made available alongside the final one
-Category: Gold  
+Name: If the data were manually curated (for example using Skyline) the curated dataset is deposited alongside the RAW data in a public repository    
+Category: Bronze    
 Description:   
-Fields: all 
+Fields: all  
+
+
+Name: Un-curated data is made available alongside the final one    
+Category: Gold    
+Description:     
+Fields: all   
 
 
 ### MS-based Quantitative
 
-Name: The software used to extract quantitative values (for example precursor intensities, reporter ion intensities etc) including its parameters and version is specified  
-Category: Bronze  
+Name: The software used to extract quantitative values (for example precursor intensities, reporter ion intensities etc) including its parameters and version is specified    
+Category: Bronze   
 Description:  
 Fields: Proteomics, ProteoGenomics 
 
 
-Name: The method used to aggregate PSM level quantitative values on the peptide and protein levels is specified
-Category: Bronze 
-Description:  
-Fields: Proteomics, ProteoGenomics  
-
-
-Name: The method used to perform normalisation is specified including at which level this normalisation was performed (PSM, peptide, or protein)
-Category: Bronze 
-Description:  
-Fields: Proteomics, ProteoGenomics  
-
-
-Name: The method used to filter and/or impute missing values is specified including at which level this filtering/imputation was performed (PSM, peptide, or protein)
-Category: Bronze  
-Description:  
-Fields: Proteomics, ProteoGenomics  
-
-### Statistical Analysis
-
-Name: The software used to perform the statistical analysis (ie. differential expression analysis) is specified including its version
-Category: Bronze
-Description:  
-Fields: Proteomics, ProteoGenomics  
-
-
-Name: The method used to determine the sample size and the power of the study is specified (if applicable)
-Category: Bronze  
-Description:  
+Name: The method used to aggregate PSM level quantitative values on the peptide and protein levels is specified   
+Category: Bronze   
+Description:   
 Fields: Proteomics, ProteoGenomics   
 
 
-Name: Any statistical test is named (including its parameters such as one- or two-sided, paired or unpaired) and the resulting p-value/threshold specified
-Category: Bronze  
+Name: The method used to perform normalisation is specified including at which level this normalisation was performed (PSM, peptide, or protein)    
+Category: Bronze   
+Description:    
+Fields: Proteomics, ProteoGenomics    
+
+
+Name: The method used to filter and/or impute missing values is specified including at which level this filtering/imputation was performed (PSM, peptide, or protein)    
+Category: Bronze   
 Description:   
-Fields: Proteomics, ProteoGenomics  
+Fields: Proteomics, ProteoGenomics   
+
+### Statistical Analysis
+
+Name: The software used to perform the statistical analysis (ie. differential expression analysis) is specified including its version    
+Category: Bronze   
+Description:   
+Fields: Proteomics, ProteoGenomics    
 
 
-Name: The method used to correct for multiple testing is specified if applicable. If correction for multiple testing was not performed, this needs to be explicitly justified.
-Category: Bronze  
-Description:  
-Fields: Proteomics, ProteoGenomics  
+Name: The method used to determine the sample size and the power of the study is specified (if applicable)   
+Category: Bronze   
+Description:   
+Fields: Proteomics, ProteoGenomics   
+
+
+Name: Any statistical test is named (including its parameters such as one- or two-sided, paired or unpaired) and the resulting p-value/threshold specified    
+Category: Bronze   
+Description:    
+Fields: Proteomics, ProteoGenomics   
+
+
+Name: The method used to correct for multiple testing is specified if applicable. If correction for multiple testing was not performed, this needs to be explicitly justified.    
+Category: Bronze   
+Description:   
+Fields: Proteomics, ProteoGenomics   
 
 
 Name: If software such as R, Python, or MatLab is used for the analysis, all used packages including their versions are specified or provided as a supplementary file  
 Category: Bronze   
 Description:  
-Fields: Proteomics, ProteoGenomics 
+Fields: Proteomics, ProteoGenomics   
 
 
-Name: If any filtering was applied / measurement(s) excluded either manually or as part of the software algorithms, this must be clearly stated  
-Category: Bronze  
-Description:  
-Fields: Proteomics, ProteoGenomics  
+Name: If any filtering was applied / measurement(s) excluded either manually or as part of the software algorithms, this must be clearly stated    
+Category: Bronze   
+Description:    
+Fields: Proteomics, ProteoGenomics    
 
 
 Name: If the software supports the export of the statistical analysis steps (for example R scripts) these are made available for review  
-Category: Silver 
-Description:  
-Fields: Proteomics, ProteoGenomics  
+Category: Silver   
+Description:   
+Fields: Proteomics, ProteoGenomics    
 
 
-Name: Any transformation of data (e.g. log transformation) manually or as part of a software function/test is specified including the order that these transformations were performed  
+Name: Any transformation of data (e.g. log transformation) manually or as part of a software function/test is specified including the order that these transformations were performed   
 Category: Silver  
-Description:  
-Fields: Proteomics, ProteoGenomics  
+Description:   
+Fields: Proteomics, ProteoGenomics   
 
 
 Name: If a model with multiple parameters is created, the formula for the said model is declared  
