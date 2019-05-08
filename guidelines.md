@@ -1,11 +1,13 @@
 
 ![Eubic Logo](https://github.com/ypriverol/ReproducibleMSGuidelines/raw/master/eubic-logo.png)
+
 European Bioinformatics Community
 
 
 ## Title: Minimal Guidelines for Reproducible MS-based Research
+
 ### Version: v0.1
-Authors: Johannes Griss, Yasset Perez-Riverol
+### Authors: Johannes Griss, Yasset Perez-Riverol
 
 
 
