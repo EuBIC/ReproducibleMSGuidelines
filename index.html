@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="viewer/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="viewer/index.css">
+    
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    
+    <div id="guidelines">
+        <div class="row">
+          <div class="col-2">
+            <field-selector v-bind:fields="fields" v-on:field-changed="onFieldChanged"></field-selector>
+          </div>
+          <div class="col-8">
+            <guidelines-section v-for="section in visible_sections" 
+            v-bind:name="section.name" 
+            v-bind:description="section.description"
+            v-bind:example="section.example"
+            v-bind:items="section.items">
+            </guidelines-section>
+          </div>
+      </div>
+    </div>
+
+    <script src="viewer/vue.js"></script>
+    <script src="viewer/axios.min.js"></script>
+    <script src="viewer/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+.guidelines-section h1 {
+    margin-top: 0.5em;
+    padding-bottom: 0.1em;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #6c757d;
+}
+
+.guidelines-section h1 i {
+    cursor: pointer;
+}
+
+#guidelines {
+    font-family: 'Crimson Text', serif;
+}
+
+.bronze {
+    color: #FFF;
+    background-color: #8C7853;
+}
+
+.silver {
+    color: #333;
+    background-color: #C0C0C0;
+}
+
+.gold {
+    color: #222;
+    background-color: #FFD700;
+}
+
+.guideline-item-description {
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid #6c757d;
+}
+
+.guideline-item {
+    margin-top: 1em;    
+}
+
+.guideline-item h2 {
+    font-size: 1.2em;
+}
+
+.guideline-item-scope {
+    margin-bottom: 0.5em;
+}
+
+.guideline-item h3 {
+    padding-bottom: 0.1em;
+}
+
+.field-selector {
+    margin-top: 2em;
+    font-size: 1.2em;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    padding: 1em;
+}
+
+.field-selector h1 {
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.field-selector li span {
+    cursor: pointer;
+    margin-left: 0.5em;
+}

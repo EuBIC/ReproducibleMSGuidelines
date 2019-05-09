@@ -1,0 +1,361 @@
+/**
+ * Function to parse the markdown string
+ */
+function parseMarkdown(markdown) {
+    // initialize the array to hold all sections
+    sections = [];
+
+    // process everything line by line
+    lines = markdown.split("\n");
+
+    current_section = null;
+    current_item = null;
+    last_field = null;
+    in_item = false;
+    in_section = false;
+
+   lines.forEach(function(line) {
+        line = line.trim();
+        
+        // test if the line is a section heading
+        if (line.substr(0, 4) == "### ") {
+            in_section = true;
+
+            // save the last item
+            if (current_section != null && current_item != null) {
+                current_section["items"].push(current_item);
+                current_item = null;
+            }
+
+            // save the last section
+            if (current_section != null) {
+                sections.push(current_section);
+            }
+
+            // initialize the new section
+            current_section = {
+                name: line.substr(4),
+                description: null,
+                example: null,
+                items: []
+            };
+        }
+        // process the section fields
+        else if (line.substr(0, 15).toLowerCase() == "sectionexample:") {
+            current_section.example = line.substr(15).trim();
+            last_field = "section_example";
+        }
+        else if (line.substr(0, 19).toLowerCase() == "sectiondescription:") {
+            current_section.description = line.substr(19).trim();
+            last_field = "section_description";
+        }
+        // test if a new item starts
+        else if (line.substr(0, 5).toLowerCase() == "name:") {
+            // save the current item
+            if (current_item != null) {
+                current_section.items.push(current_item);
+            }
+
+            // initialize the new item
+            current_item = {
+                name: line.substr(5).trim(),
+                category: null,
+                description: null,
+                fields: null,
+                example: null
+            };
+
+            last_field = "item_name";
+        }
+        // process the item fields
+        else if (line.substr(0, 9).toLowerCase() == "category:") {
+            current_item.category = line.substr(9).trim();
+        }
+        else if (line.substr(0, 12).toLowerCase() == "description:") {
+            current_item.description = line.substr(12).trim();
+            last_field = "item_description";
+        }
+        else if (line.substr(0, 7).toLowerCase() == "fields:") {
+            current_item.fields = line.substr(7).trim();
+            last_field = "item_fields";
+        }
+        else if (line.substr(0, 8).toLowerCase() == "example:") {
+            current_item.example = line.substr(8).trim();
+            last_field = "item_example";
+        }
+        // process multi-line fields
+        else if (line.length > 0 && current_item != null) {
+            switch(last_field) {
+                case "section_description":
+                    current_section.description += " " + line;
+                    break;
+                case "section_example":
+                    current_section.example += " " + line;
+                    break;
+                case "item_name":
+                    current_item.name += " " + line;
+                    break;
+                case "item_description":
+                    current_item.description += " " + line;
+                    break;
+                case "item_fields":
+                    // TODO: check if fields ends with ","
+                    current_item.fields += "," + line;
+                    break;
+                case "item_example":
+                    current_item.example += " " + line;
+                    break;
+            }
+        }
+    });
+
+    // add the last item and section
+    if (current_item != null && current_section != null) {
+        current_section.items.push(current_item);
+    }
+    if (current_section != null) {
+        sections.push(current_section);
+    }
+
+    return(sections);
+}
+
+/**
+ * Component to render a single item
+ */
+// Define a new component called button-counter
+Vue.component('guidelines-item', {
+    props: ["name", "description", "category", "fields", "example"],
+    data: function() {
+      return {
+          "show_description": false,
+          "show_example": false
+      }  
+    },
+    computed: {
+        field_array: function() {
+            return this.fields.split(",").map(value => value.trim());
+        }
+    },
+    template: '\
+    <div class="guideline-item">\
+        <h2 class="guideline-item-name">\
+            {{ name }}\
+            <span class="category badge" v-bind:class="[category.toLowerCase()]">{{ category }}</span>\
+        </h2>\
+        <div class="guideline-item-scope">\
+            Fields: <span v-for="field in field_array" class="badge badge-pill badge-info">{{ field }}</span>\
+        </div>\
+        <div class="guidelines-item-controls">\
+            <button v-if="description" v-on:click="show_description = !show_description"\
+                    class="btn btn-sm"\
+                    v-bind:class="{\'btn-outline-info\': !show_description, \'btn-info\': show_description}">Description</button>\
+            <button v-if="example" v-on:click="show_example = !show_example"\
+                    class="btn btn-sm"\
+                v-bind:class="{\'btn-outline-info\': !show_example, \'btn-info\': show_example}">Description</button>\
+        </div>\
+        <div class="guideline-item-description" v-if="description && show_description">\
+            <h4>Description</h4>\
+            <p>{{ description }}</p>\
+        </div>\
+        <div class="guideline-item-example" v-if="example && show_example">\
+            <h4>Example</h4>\
+            <p>{{ example }}</p>\
+        </div>\
+    </div>'
+  })
+
+  Vue.component("guidelines-section", {
+      props: ["name", "description", "example", "items"],
+      data: function() {
+          return {
+              show: false
+          }
+      },
+      template: '\
+      <div class="guidelines-section">\
+        <h1 class="guidelines-section-name" v-bind:class="{\'border-bottom\': show}">{{ name }}\
+            <span class="badge badge-pill badge-secondary"> {{ items.length }}</span>\
+            <i v-on:click="show = !show" class="far" v-bind:class="{\'fa-plus-square\': !show, \'fa-minus-square\': show}"></i>\
+        </h1>\
+        <div class="guidelines-section-description" v-if="description">\
+            <div class="shadow-sm p-3 mb-5 bg-white rounded">{{ description }}</div>\
+        </div>\
+        <div class="guidelines-section-example" v-if="example">{{ example }}</div>\
+        <div class="guidelines-section-items" v-if="show">\
+            <div id="guidelines">\
+                <guidelines-item\
+                    v-for="item in items" \
+                    v-bind:name="item.name" \
+                    v-bind:description="item.description" \
+                    v-bind:category="item.category" \
+                    v-bind:fields="item.fields" \
+                    v-bind:example="item.example"></guidelines-item> \
+            </div>\
+        </div>\
+      </div>\
+      '
+  })
+
+  /**
+   * Vue component to show the breadcrumbs of
+   * available methods
+   */
+  Vue.component("field-selector", {
+      props: ["fields"],
+      data: function() {
+          return {
+              field_states: {},
+              enabled_fields: []
+          }
+      },
+      watch: {
+        fields: function() {
+            console.debug("Updating field-selector field list");
+            // enable all fields
+            this.fields.forEach(field => this.field_states[field] = true);
+            // update the enabled fields
+            this.enabled_fields = this.fields;
+        }
+      },
+      created: function() {
+        console.debug("menu was created");
+        // enable all fields
+        this.fields.forEach(field => this.field_states[field] = true);
+        // update the enabled fields
+        this.enabled_fields = this.fields;
+      },
+      methods: {
+        toggleField: function(field) {
+            // get the field state
+            console.debug("Toggeling " + field);
+            console.debug(field + " = " + this.field_states[field]);
+
+            this.field_states[field] = !this.field_states[field];
+            this.$emit('field-changed', this.field_states);
+
+            this.enabled_fields = this.getActiveFields();
+        },
+        getActiveFields: function() {
+            // get the active fields
+            var active_fields = [];
+            for (var field in this.field_states) {
+                if (this.field_states[field]) {
+                    active_fields.push(field);
+                }
+            }
+            return(active_fields);
+        }
+      },
+      template: '\
+      <div class="field-selector">\
+        <h1>Visible fields:</h1>\
+        <ul class="nav flex-sm-column">\
+            <li class="nav-item" v-for="field in fields">\
+                <span class="badge"\
+                v-bind:class="{\'badge-primary\': enabled_fields.indexOf(field) > -1, \'badge-secondary\': enabled_fields.indexOf(field) == -1}" \
+                v-on:click.prevent="toggleField(field)">{{ field }}</span>\
+            </li>\
+        </ul>\
+      </div>\
+      '
+  })
+
+  /**
+   * Vue instance for the guidelines parser
+   */
+  var vm_guidelines = new Vue({
+      el: '#guidelines',
+      data: {
+          sections: [
+              {
+                  name: "Data deposition",
+                  description: "This is very important to us",
+                  items: [
+                    {name: "Raw data", description: "A great description", category: "bronze", fields: "all"},
+                    {name: "With example", category: "silver", fields: "proteomics, lipidomics", example: "A really great example but no description"}
+                  ]
+                }
+            ],
+            fields: [],
+            visible_fields: []
+      },
+      methods: {
+        onFieldChanged: function(fieldStates) {
+            console.debug("Field changed: " + fieldStates);
+            // put all visible fields in the visible_fields array
+            var new_visible_fields = [];
+            for (var field in fieldStates) {
+                if (fieldStates[field]) {
+                    new_visible_fields.push(field);
+                }
+            }
+
+            this.visible_fields = new_visible_fields;
+        }
+      },
+      computed: {
+        visible_sections: function() {
+            var visible_sections = [];
+
+            this.sections.forEach(function(section) {
+                // only filter based on the items
+                var section_copy = {
+                    name: section.name,
+                    description: section.description,
+                    example: section.example,
+                    items: []
+                };
+
+                section.items.forEach(function(item) {
+                    // check if the item is visible
+                    var is_visible = false;
+                    var item_fields = item.fields.split(",").map(field => field.trim());
+
+                    if (item_fields.indexOf("all") > -1) {
+                        is_visible = true;
+                    }
+                    else {
+                        for (var i = 0; i < this.visible_fields.length; i++) {
+                            if (item_fields.indexOf(this.visible_fields[i]) > -1) {
+                                is_visible = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (is_visible) {
+                        section_copy.items.push(item);
+                    }
+                }.bind(this));
+
+                if (section_copy.items.length > 0)
+                    visible_sections.push(section_copy);
+            }.bind(this));
+
+            return(visible_sections);
+        }
+      },
+      mounted: function() {
+          axios.get("guidelines.md")
+          .then(function (response) {
+            console.debug("Parsing markdown...");
+            this.sections = parseMarkdown(response.data);
+
+            // get all available fields
+            var all_fields = {};
+
+            this.sections.forEach(function(section) {
+                section.items.forEach(function(item) {
+                    var item_fields = item.fields.split(",");
+                    item_fields.forEach(field => all_fields[field.trim()] = 1);
+                });
+            });
+            
+            delete all_fields["all"];
+
+            this.fields = Object.keys(all_fields);
+            this.visible_fields = this.fields;
+          }.bind(this))
+      }
+  })
