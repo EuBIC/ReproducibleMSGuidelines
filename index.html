@@ -7,27 +7,49 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="viewer/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet"> 
+    <link href="viewer/crimson.css" rel="stylesheet"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="viewer/index.css">
     
-    <title>Hello, world!</title>
+    <title>EuBIC Guidelines for Repodrucible MS-based Experiments</title>
   </head>
   <body>
-    
-    <div id="guidelines">
-        <div class="row">
-          <div class="col-2">
-            <field-selector v-bind:fields="fields" v-on:field-changed="onFieldChanged"></field-selector>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="navigation">
+      <span class="navbar-brand mb-0 h1">EuBIC Guidelines</span>
+      
+      <button class="navbar-toggler" type="button" v-on:click="show_menu = !show_menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div v-bind:class="{collapse: !show_menu}" class="navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="#">Scope <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="https://github.com/jgriss/ReproducibleMSGuidelines/blob/master/CONTRIBUTING.md">How to contribute</a>
+          <div class="d-md-none">
+          <a class="nav-item nav-link" href="https://github.com/jgriss/ReproducibleMSGuidelines" target="_blank">
+            <i style="color: #FFF;" class="fab fa-github fa-lg"></i>
+          </a>
           </div>
-          <div class="col-8">
+        </div>
+      </div>
+      <div class="mr-sm-2 d-none d-md-block">
+        <a href="https://github.com/jgriss/ReproducibleMSGuidelines" target="_blank"><i style="color: #FFF;" class="fab fa-github fa-2x"></i></a>
+      </div>
+    </nav>
+    
+    <div class="container-fluid">
+      <div id="guidelines">
+        <div class="row">
+          <div class="col-md-3 col-lg-2">
+            <field-selector class="d-none d-md-block" v-bind:fields="fields" v-on:field-changed="onFieldChanged"></field-selector>
+          </div>
+          <div class="col-md-9 col-lg-7">
             <h1>EuBIC Guidelines for Repodrucible MS-based Experiments</h1>
             <span v-for="(author, index) in authors"> 
               <span v-if="index == authors.length -1">and</span>
               <span class="author-name">{{ author.name }}</span>
               <a v-bind:href="author.orcid" v-if="author.orcid" class="orcid-icon" target="_blank"></a>
               <span v-if="index < authors.length - 2" class="comma">,</span>
-            </span>
+            </span>   
 
             <guidelines-section v-for="section in visible_sections" 
             v-bind:name="section.name" 
@@ -36,10 +58,12 @@
             v-bind:items="section.items">
             </guidelines-section>
           </div>
+        </div>
       </div>
     </div>
 
     <script src="viewer/vue.js"></script>
+    <script src="https://unpkg.com/marked@0.3.6"></script>
     <script src="viewer/axios.min.js"></script>
     <script src="viewer/index.js"></script>
   </body>

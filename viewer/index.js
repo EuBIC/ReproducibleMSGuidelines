@@ -189,14 +189,10 @@ Vue.component('guidelines-item', {
     },
     template: '\
     <div class="guideline-item">\
-        <h2 class="guideline-item-name">\
-            {{ name }}\
-            <span class="category badge" v-bind:class="[category.toLowerCase()]">{{ category }}</span>\
-        </h2>\
+        <h2 class="guideline-item-name" v-html="marked(name)"></h2>\
         <div class="guideline-item-scope">\
-            Fields: <span v-for="field in field_array" class="badge badge-pill badge-info">{{ field }}</span>\
-        </div>\
-        <div class="guidelines-item-controls">\
+            <span class="category badge" v-bind:class="[category.toLowerCase()]">{{ category }}</span>\
+            <span v-for="field in field_array" class="badge badge-pill badge-info">{{ field }}</span>\
             <button v-if="description" v-on:click="show_description = !show_description"\
                     class="btn btn-sm"\
                     v-bind:class="{\'btn-outline-info\': !show_description, \'btn-info\': show_description}">Description</button>\
@@ -206,11 +202,11 @@ Vue.component('guidelines-item', {
         </div>\
         <div class="guideline-item-description" v-if="description && show_description">\
             <h4>Description</h4>\
-            <p>{{ description }}</p>\
+            <div v-html="marked(description)"></div>\
         </div>\
         <div class="guideline-item-example" v-if="example && show_example">\
             <h4>Example</h4>\
-            <p>{{ example }}</p>\
+            <div v-html="marked(example)"></div>\
         </div>\
     </div>'
   })
@@ -299,17 +295,25 @@ Vue.component('guidelines-item', {
       },
       template: '\
       <div class="field-selector">\
-        <h1>Visible fields:</h1>\
-        <ul class="nav flex-sm-column">\
-            <li class="nav-item" v-for="field in fields">\
-                <span class="badge"\
-                v-bind:class="{\'badge-primary\': enabled_fields.indexOf(field) > -1, \'badge-secondary\': enabled_fields.indexOf(field) == -1}" \
-                v-on:click.prevent="toggleField(field)">{{ field }}</span>\
-            </li>\
-        </ul>\
+        <h1>Shown fields:</h1>\
+        <div v-for="field in fields">\
+            <span class="badge"\
+            v-bind:class="{\'badge-secondary\': enabled_fields.indexOf(field) > -1, \'badge-light\': enabled_fields.indexOf(field) == -1}" \
+            v-on:click.prevent="toggleField(field)">{{ field }}</span>\
+        </div>\
       </div>\
       '
   })
+
+  /**
+   * Vue navigation instance
+   */
+  var vm_navigation = new Vue({
+    el: "#navigation",
+    data: {
+        show_menu: false
+    }
+  });
 
   /**
    * Vue instance for the guidelines parser
