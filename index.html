@@ -21,6 +21,14 @@
             <field-selector v-bind:fields="fields" v-on:field-changed="onFieldChanged"></field-selector>
           </div>
           <div class="col-8">
+            <h1>EuBIC Guidelines for Repodrucible MS-based Experiments</h1>
+            <span v-for="(author, index) in authors"> 
+              <span v-if="index == authors.length -1">and</span>
+              <span class="author-name">{{ author.name }}</span>
+              <a v-bind:href="author.orcid" v-if="author.orcid" class="orcid-icon" target="_blank"></a>
+              <span v-if="index < authors.length - 2" class="comma">,</span>
+            </span>
+
             <guidelines-section v-for="section in visible_sections" 
             v-bind:name="section.name" 
             v-bind:description="section.description"

@@ -1,18 +1,68 @@
+function extractAuthorsFromMarkdown(markdown) {
+    // find the authors line
+    var lines = markdown.split("\n");
+    var author_line = null;
+
+    for (var i = 0; i < lines.length; i++) {
+        if (lines[i].trim().substr(0, 11) == "## Authors:") {
+            author_line = lines[i].substr(11);
+            break;
+        }
+    }
+
+    if (author_line == null) {
+        return [];
+    }
+
+    // remove the "and" part
+    var and_index = author_line.indexOf(" and ");
+    var final_author = null;
+    if (and_index > -1) {
+        final_author = {name: author_line.substr(and_index + 5)};
+    }
+
+    var author_strings = author_line.split(",")
+    var authors = [];
+
+    author_strings.forEach(function(author_string) {
+        var orcid_start = author_string.indexOf("(");
+        var orcid_end = author_string.indexOf(")");
+
+        if (orcid_start > -1) {
+            authors.push({
+                name: author_string.substr(0, orcid_start - 1).trim(),
+                orcid: author_string.substr(orcid_start + 1, orcid_end - orcid_start - 1).trim()
+            });
+        } else {
+            authors.push({
+                name: author_string.trim(),
+                orcid: null
+            });
+        }
+    });
+
+    if (final_author != null) {
+        authors.push(final_author);
+    }
+
+    return(authors);
+}
+
 /**
  * Function to parse the markdown string
  */
 function parseMarkdown(markdown) {
     // initialize the array to hold all sections
-    sections = [];
+    var sections = [];
 
     // process everything line by line
-    lines = markdown.split("\n");
+    var lines = markdown.split("\n");
 
-    current_section = null;
-    current_item = null;
-    last_field = null;
-    in_item = false;
-    in_section = false;
+    var current_section = null;
+    var current_item = null;
+    var last_field = null;
+    var in_item = false;
+    var in_section = false;
 
    lines.forEach(function(line) {
         line = line.trim();
@@ -267,18 +317,10 @@ Vue.component('guidelines-item', {
   var vm_guidelines = new Vue({
       el: '#guidelines',
       data: {
-          sections: [
-              {
-                  name: "Data deposition",
-                  description: "This is very important to us",
-                  items: [
-                    {name: "Raw data", description: "A great description", category: "bronze", fields: "all"},
-                    {name: "With example", category: "silver", fields: "proteomics, lipidomics", example: "A really great example but no description"}
-                  ]
-                }
-            ],
-            fields: [],
-            visible_fields: []
+        sections: [],
+        fields: [],
+        visible_fields: [],
+        authors: []
       },
       methods: {
         onFieldChanged: function(fieldStates) {
@@ -340,7 +382,11 @@ Vue.component('guidelines-item', {
           axios.get("guidelines.md")
           .then(function (response) {
             console.debug("Parsing markdown...");
+            // get the sections
             this.sections = parseMarkdown(response.data);
+
+            // get the authors
+            this.authors = extractAuthorsFromMarkdown(response.data);
 
             // get all available fields
             var all_fields = {};
