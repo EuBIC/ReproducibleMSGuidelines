@@ -221,13 +221,13 @@ Fields: all
 
 
 Name: The used software version can be identified through a DOI (for example through https://zenodo.org)  
-Category: Bold  
+Category: Gold  
 Description:   
 Fields: all    
 
 
 Name: For newly developed software: a description how to run and what to expect from provided demo data is distributed with the software  
-Category: Bold  
+Category: Gold  
 Description:   
 Fields: all  
 
