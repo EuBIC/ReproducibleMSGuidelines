@@ -30,6 +30,7 @@
                 <i style="color: #FFF;" class="fab fa-github fa-lg"></i>
               </a>
               <field-selector v-bind:fields="field_states" v-on:toggle-field="onToggleField"></field-selector>
+              <field-selector v-bind:fields="categories" title="Shown categories" v-on:toggle-field="onToggleCategory"></field-selector>
             </div>  
           </div>
         </div>
@@ -42,6 +43,7 @@
         <div class="row">
           <div class="col-md-3 col-lg-2 side-menu">
             <field-selector class="d-none d-md-block" v-bind:fields="field_states" v-on:toggle-field="onToggleField"></field-selector>
+            <field-selector class="d-none d-md-block" v-bind:fields="categories" title="Shown categories" v-on:toggle-field="onToggleCategory"></field-selector>
           </div>
           <div class="col-md-9 col-lg-7 guidelines-view">
             <h1>EuBIC Guidelines for Repodrucible MS-based Experiments</h1>

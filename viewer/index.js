@@ -247,25 +247,24 @@ Vue.component('guidelines-item', {
    * available methods
    */
   var vue_field_selector = {
-    props: ["fields"],
+    props: {
+        fields: Array,
+        title: {
+            type: String,
+            default: "Shown fields"
+        }
+    },
     data: function() {
         return {
             enabled_fields: []
         }
     },
+    mounted: function() {
+        this.updateEnabledFields();
+    },
     watch: {
         fields: function() {
-            var updated_enabled_fields = [];
-
-            for (var field in this.fields) {
-                if (this.fields[field]) {
-                    updated_enabled_fields.push(field);
-                }
-            }
-
-            // necessary to change the variable to trigger an update of the components
-            console.debug("field-selector: Updated enabled_fields: " + updated_enabled_fields.join(", "));
-            this.enabled_fields = updated_enabled_fields;
+            this.updateEnabledFields();
         }
     },
     methods: {
@@ -279,11 +278,24 @@ Vue.component('guidelines-item', {
           }
 
           this.$emit('toggle-field', field);
+      },
+      updateEnabledFields: function() {
+        var updated_enabled_fields = [];
+
+        for (var field in this.fields) {
+            if (this.fields[field]) {
+                updated_enabled_fields.push(field);
+            }
+        }
+
+        // necessary to change the variable to trigger an update of the components
+        console.debug("field-selector: Updated enabled_fields: " + updated_enabled_fields.join(", "));
+        this.enabled_fields = updated_enabled_fields;
       }
     },
     template: '\
     <div class="field-selector">\
-      <h1>Shown fields:</h1>\
+      <h1>{{ title }}</h1>\
       <div v-for="field in Object.keys(fields)">\
           <span class="badge"\
           v-bind:class="{\'badge-secondary\': enabled_fields.indexOf(field) > -1, \'badge-light\': enabled_fields.indexOf(field) == -1}" \
@@ -303,10 +315,35 @@ Vue.component('guidelines-item', {
         sections: [],
         field_states: {},
         visible_fields: [],
+        categories: {Bronze: true, Silver: true, Gold: true},
+        visible_categories: ["Bronze", "Silver", "Gold"],
         authors: [],
         show_menu: false
       },
       methods: {
+        onToggleCategory: function(category) {
+            // update the category_states
+            var updated_category_states = {};
+            // copy the object
+            for (var category_name in this.categories) {
+                updated_category_states[category_name] = this.categories[category_name];
+            }
+
+            // toggle the state and update the original object to trigger a global update
+            updated_category_states[category] = !updated_category_states[category];
+            this.categories = updated_category_states;
+
+            // put all visible fields in the visible_fields array
+            var new_visible_categories = [];
+            for (var category in this.categories) {
+                if (this.categories[category]) {
+                    new_visible_categories.push(category);
+                }
+            }
+
+            this.visible_categories = new_visible_categories;
+        },
+
         onToggleField: function(field) {
             // update the field_states
             var updated_field_states = {};
@@ -344,23 +381,26 @@ Vue.component('guidelines-item', {
                 };
 
                 section.items.forEach(function(item) {
-                    // check if the item is visible
-                    var is_visible = false;
+                    // check if the item is visible based on its fields
+                    var is_visible_field = false;
                     var item_fields = item.fields.split(",").map(field => field.trim());
 
                     if (item_fields.indexOf("all") > -1) {
-                        is_visible = true;
+                        is_visible_field = true;
                     }
                     else {
                         for (var i = 0; i < this.visible_fields.length; i++) {
                             if (item_fields.indexOf(this.visible_fields[i]) > -1) {
-                                is_visible = true;
+                                is_visible_field = true;
                                 break;
                             }
                         }
                     }
 
-                    if (is_visible) {
+                    // check if the item is visible based on its category
+                    var is_visible_category = this.visible_categories.indexOf(item.category) > -1;
+
+                    if (is_visible_field && is_visible_category) {
                         section_copy.items.push(item);
                     }
                 }.bind(this));
