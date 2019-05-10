@@ -12,9 +12,9 @@
     cursor: pointer;
 }
 
-#guidelines {
+.guidelines-view {
     font-family: 'Crimson Text', serif;
-    margin-top: 1em;
+    margin-top: 2em;
 }
 
 .bronze {
@@ -59,7 +59,7 @@
     padding-bottom: 0.1em;
 }
 
-.field-selector {
+.side-menu .field-selector {
     margin-top: 2em;
     font-size: 1.2em;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
@@ -67,9 +67,28 @@
     position: fixed;
 }
 
-.field-selector h1 {
+.side-menu .field-selector h1 {
     font-size: 0.8em;
     font-weight: bold;
+}
+
+.navbar-collapse .field-selector {
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    padding-top: 0.5em;
+}
+
+.navbar-collapse .field-selector h1 {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-collapse .field-selector div {
+    display: inline-block;
+}
+
+.navbar-collapse .field-selector .badge-light {
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgb(52, 58, 64);;
 }
 
 .field-selector div span {

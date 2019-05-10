@@ -246,78 +246,53 @@ Vue.component('guidelines-item', {
    * Vue component to show the breadcrumbs of
    * available methods
    */
-  Vue.component("field-selector", {
-      props: ["fields"],
-      data: function() {
-          return {
-              field_states: {},
-              enabled_fields: []
-          }
-      },
-      watch: {
-        fields: function() {
-            console.debug("Updating field-selector field list");
-            // enable all fields
-            this.fields.forEach(field => this.field_states[field] = true);
-            // update the enabled fields
-            this.enabled_fields = this.fields;
+  var vue_field_selector = {
+    props: ["fields"],
+    data: function() {
+        return {
+            enabled_fields: []
         }
-      },
-      created: function() {
-        console.debug("menu was created");
-        // enable all fields
-        this.fields.forEach(field => this.field_states[field] = true);
-        // update the enabled fields
-        this.enabled_fields = this.fields;
-      },
-      methods: {
-        toggleField: function(field) {
-            // get the field state
-            console.debug("Toggeling " + field);
-            console.debug(field + " = " + this.field_states[field]);
+    },
+    watch: {
+        fields: function() {
+            var updated_enabled_fields = [];
 
-            // if the user de-selects a field, make sure it's not the last one
-            if (this.field_states[field] && this.enabled_fields.length < 2) {
-                return;
-            }
-
-            this.field_states[field] = !this.field_states[field];
-            this.$emit('field-changed', this.field_states);
-
-            this.enabled_fields = this.getActiveFields();
-        },
-        getActiveFields: function() {
-            // get the active fields
-            var active_fields = [];
-            for (var field in this.field_states) {
-                if (this.field_states[field]) {
-                    active_fields.push(field);
+            for (var field in this.fields) {
+                if (this.fields[field]) {
+                    updated_enabled_fields.push(field);
                 }
             }
-            return(active_fields);
-        }
-      },
-      template: '\
-      <div class="field-selector">\
-        <h1>Shown fields:</h1>\
-        <div v-for="field in fields">\
-            <span class="badge"\
-            v-bind:class="{\'badge-secondary\': enabled_fields.indexOf(field) > -1, \'badge-light\': enabled_fields.indexOf(field) == -1}" \
-            v-on:click.prevent="toggleField(field)">{{ field }}</span>\
-        </div>\
-      </div>\
-      '
-  })
 
-  /**
-   * Vue navigation instance
-   */
-  var vm_navigation = new Vue({
-    el: "#navigation",
-    data: {
-        show_menu: false
-    }
-  });
+            // necessary to change the variable to trigger an update of the components
+            console.debug("field-selector: Updated enabled_fields: " + updated_enabled_fields.join(", "));
+            this.enabled_fields = updated_enabled_fields;
+        }
+    },
+    methods: {
+      toggleField: function(field) {
+          // get the field state
+          console.debug("Toggeling " + field);
+
+          // if the user de-selects a field, make sure it's not the last one
+          if (this.fields[field] && this.enabled_fields.length < 2) {
+              return;
+          }
+
+          this.$emit('toggle-field', field);
+      }
+    },
+    template: '\
+    <div class="field-selector">\
+      <h1>Shown fields:</h1>\
+      <div v-for="field in Object.keys(fields)">\
+          <span class="badge"\
+          v-bind:class="{\'badge-secondary\': enabled_fields.indexOf(field) > -1, \'badge-light\': enabled_fields.indexOf(field) == -1}" \
+          v-on:click.prevent="toggleField(field)">{{ field }}</span>\
+      </div>\
+    </div>\
+    '
+};
+ Vue.component("field-selector", vue_field_selector);
 
   /**
    * Vue instance for the guidelines parser
@@ -326,17 +301,28 @@ Vue.component('guidelines-item', {
       el: '#guidelines',
       data: {
         sections: [],
-        fields: [],
+        field_states: {},
         visible_fields: [],
-        authors: []
+        authors: [],
+        show_menu: false
       },
       methods: {
-        onFieldChanged: function(fieldStates) {
-            console.debug("Field changed: " + fieldStates);
+        onToggleField: function(field) {
+            // update the field_states
+            var updated_field_states = {};
+            // copy the object
+            for (var field_name in this.field_states) {
+                updated_field_states[field_name] = this.field_states[field_name];
+            }
+
+            // toggle the state and update the original object to trigger a global update
+            updated_field_states[field] = !updated_field_states[field];
+            this.field_states = updated_field_states;
+
             // put all visible fields in the visible_fields array
             var new_visible_fields = [];
-            for (var field in fieldStates) {
-                if (fieldStates[field]) {
+            for (var field in this.field_states) {
+                if (this.field_states[field]) {
                     new_visible_fields.push(field);
                 }
             }
@@ -408,8 +394,10 @@ Vue.component('guidelines-item', {
             
             delete all_fields["all"];
 
-            this.fields = Object.keys(all_fields);
-            this.visible_fields = this.fields;
+            console.debug("Viewer: Found fields " + Object.keys(all_fields).join(", "));
+
+            this.field_states = all_fields;
+            this.visible_fields = Object.keys(this.field_states);
           }.bind(this))
       }
   })
