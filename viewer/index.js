@@ -173,7 +173,6 @@ function parseMarkdown(markdown) {
 /**
  * Component to render a single item
  */
-// Define a new component called button-counter
 Vue.component('guidelines-item', {
     props: ["name", "description", "category", "fields", "example"],
     data: function() {
@@ -276,6 +275,11 @@ Vue.component('guidelines-item', {
             // get the field state
             console.debug("Toggeling " + field);
             console.debug(field + " = " + this.field_states[field]);
+
+            // if the user de-selects a field, make sure it's not the last one
+            if (this.field_states[field] && this.enabled_fields.length < 2) {
+                return;
+            }
 
             this.field_states[field] = !this.field_states[field];
             this.$emit('field-changed', this.field_states);
