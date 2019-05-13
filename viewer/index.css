@@ -59,6 +59,14 @@
     padding-bottom: 0.1em;
 }
 
+.guidelines-item-feedback {
+    color: #333;
+}
+
+.guidelines-item-github_link {
+    color: #333;
+}
+
 .side-menu .field-selector {
     margin-top: 2em;
     font-size: 1.2em;

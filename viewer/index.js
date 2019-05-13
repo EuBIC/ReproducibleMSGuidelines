@@ -63,9 +63,11 @@ function parseMarkdown(markdown) {
     var last_field = null;
     var in_item = false;
     var in_section = false;
+    var current_line_number = 0;
 
    lines.forEach(function(line) {
         line = line.trim();
+        current_line_number++;
         
         // test if the line is a section heading
         if (line.substr(0, 4) == "### ") {
@@ -109,6 +111,7 @@ function parseMarkdown(markdown) {
             // initialize the new item
             current_item = {
                 name: line.substr(5).trim(),
+                start_line: current_line_number,
                 category: null,
                 description: null,
                 fields: null,
@@ -173,8 +176,8 @@ function parseMarkdown(markdown) {
 /**
  * Component to render a single item
  */
-Vue.component('guidelines-item', {
-    props: ["name", "description", "category", "fields", "example"],
+var guidelines_item = {
+    props: ["name", "description", "category", "fields", "example", "start_line"],
     data: function() {
       return {
           "show_description": false,
@@ -186,12 +189,25 @@ Vue.component('guidelines-item', {
             return this.fields.split(",").map(value => value.trim());
         }
     },
+    methods: {
+        createMailLink: function() {
+            return "mailto:jgriss@ebi.ac.uk?subject=Feedback on MS Guidelines #" + 
+            this.start_line + "&body=Feedback on \"" + this.name + "\" (Line " + this.start_line + "):";
+        }
+    },
     template: '\
     <div class="guideline-item">\
         <h2 class="guideline-item-name" v-html="marked(name)"></h2>\
         <div class="guideline-item-scope">\
             <span class="category badge" v-bind:class="[category.toLowerCase()]">{{ category }}</span>\
             <span v-for="field in field_array" class="badge badge-pill badge-info">{{ field }}</span>\
+            <a class="guidelines-item-feedback" v-bind:href="createMailLink()" title="Post feedback using e-mail">\
+                <i class="far fa-comment-alt"></i>\
+            </a>\
+            <a class="guidelines-item-github_link" target="_blank" title="View on GitHub"\
+               v-bind:href="\'https://github.com/jgriss/ReproducibleMSGuidelines/blame/master/guidelines.md#L\' + start_line">\
+                <i class="fab fa-github"></i>\
+            </a>\
             <button v-if="description" v-on:click="show_description = !show_description"\
                     class="btn btn-sm"\
                     v-bind:class="{\'btn-outline-info\': !show_description, \'btn-info\': show_description}">Description</button>\
@@ -208,7 +224,8 @@ Vue.component('guidelines-item', {
             <div v-html="marked(example)"></div>\
         </div>\
     </div>'
-  })
+  };
+  Vue.component('guidelines-item', guidelines_item);
 
   Vue.component("guidelines-section", {
       props: ["name", "description", "example", "items"],
@@ -235,12 +252,14 @@ Vue.component('guidelines-item', {
                     v-bind:description="item.description" \
                     v-bind:category="item.category" \
                     v-bind:fields="item.fields" \
-                    v-bind:example="item.example"></guidelines-item> \
+                    v-bind:example="item.example"\
+                    v-bind:start_line="item.start_line"></guidelines-item> \
             </div>\
         </div>\
       </div>\
       '
-  })
+  });
+
 
   /**
    * Vue component to show the breadcrumbs of
