@@ -282,21 +282,21 @@ var guidelines_item = {
           <span class="badge badge-pill badge-secondary"> {{ items.length }}</span>\
           <i v-on:click="show = !show" class="far" v-bind:class="{\'fa-plus-square\': !show, \'fa-minus-square\': show}"></i>\
       </h1>\
-      <div class="guidelines-section-description" v-if="description">\
-          <div class="shadow-sm p-3 mb-5 bg-white rounded">{{ description }}</div>\
-      </div>\
-      <div class="guidelines-section-example" v-if="example">{{ example }}</div>\
       <div class="guidelines-section-items" v-if="show">\
-          <div id="guidelines">\
-              <guidelines-item\
-                  v-for="item in items" \
-                  v-bind:name="item.name" \
-                  v-bind:description="item.description" \
-                  v-bind:category="item.category" \
-                  v-bind:fields="item.fields" \
-                  v-bind:example="item.example"\
-                  v-bind:start_line="item.start_line"></guidelines-item> \
-          </div>\
+        <div class="guidelines-section-description" v-if="description">\
+            <b>Description:</b> {{ description }}\
+        </div>\
+        <div class="guidelines-section-description" v-if="example"><b>Example:</b> {{ example }}</div>\
+        <div id="guidelines">\
+            <guidelines-item\
+                v-for="item in items" \
+                v-bind:name="item.name" \
+                v-bind:description="item.description" \
+                v-bind:category="item.category" \
+                v-bind:fields="item.fields" \
+                v-bind:example="item.example"\
+                v-bind:start_line="item.start_line"></guidelines-item> \
+        </div>\
       </div>\
     </div>\
     '

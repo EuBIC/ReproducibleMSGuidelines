@@ -38,6 +38,12 @@
     border: 1px solid #6c757d;
 }
 
+.guidelines-section-description {
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid #6c757d;
+}
+
 .guideline-item {
     margin-top: 1em;    
 }
