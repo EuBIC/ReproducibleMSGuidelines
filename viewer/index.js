@@ -278,9 +278,9 @@ var guidelines_item = {
     },
     template: '\
     <div class="guidelines-section" v-bind:id="id">\
-      <h1 class="guidelines-section-name" v-bind:class="{\'border-bottom\': show}">{{ name }}\
+      <h1 class="guidelines-section-name" v-bind:class="{\'border-bottom\': show}" v-on:click="show = !show">{{ name }}\
           <span class="badge badge-pill badge-secondary"> {{ items.length }}</span>\
-          <i v-on:click="show = !show" class="far" v-bind:class="{\'fa-plus-square\': !show, \'fa-minus-square\': show}"></i>\
+          <i class="far" v-bind:class="{\'fa-plus-square\': !show, \'fa-minus-square\': show}"></i>\
       </h1>\
       <div class="guidelines-section-items" v-if="show">\
         <div class="guidelines-section-description" v-if="description">\
