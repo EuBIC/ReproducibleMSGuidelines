@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="viewer/index.css">
     
-    <title>EuBIC Guidelines for Repodrucible MS-based Experiments</title>
+    <title>EuBIC Guidelines for Reproducible MS-based Experiments</title>
   </head>
   <body>
     <div id="guidelines">
@@ -23,8 +23,10 @@
         </button>
         <div v-bind:class="{collapse: !show_menu}" class="navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#">Scope <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#" v-on:click.prevent="show_introduction = true  ">Scope</a>
+            <a class="nav-item nav-link" href="https://groups.google.com/forum/#!forum/eubic-guidelines" target="_blank" title="The official mailing list for the EuBIC Guidelines project.">Google Group</a>
             <a class="nav-item nav-link" href="https://github.com/jgriss/ReproducibleMSGuidelines/blob/master/CONTRIBUTING.md">How to contribute</a>
+            <a class="nav-item nav-link" href="https://www.proteomics-academy.org" target="_blank">EuBIC</a>
             <div class="d-md-none">
               <a class="nav-item nav-link" href="https://github.com/jgriss/ReproducibleMSGuidelines" target="_blank">
                 <i style="color: #FFF;" class="fab fa-github fa-lg"></i>
@@ -38,6 +40,26 @@
           <a href="https://github.com/jgriss/ReproducibleMSGuidelines" target="_blank"><i style="color: #FFF;" class="fab fa-github fa-2x"></i></a>
         </div>
       </nav>
+
+      <transition name="fade">
+        <div class="modal" tabindex="-1" role="dialog" v-if="introduction" v-show="show_introduction" v-on:click.prevent="show_introduction = false">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Scope</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" v-on:click.prevent="show_introduction = false">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" v-html="marked(introduction)">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" v-on:click.prevent="show_introduction = false">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
     
       <div class="container-fluid">
         <div class="row">
@@ -46,7 +68,7 @@
             <field-selector class="d-none d-md-block" v-bind:fields="categories" title="Shown categories" v-on:toggle-field="onToggleCategory"></field-selector>
           </div>
           <div class="col-md-9 col-lg-7 guidelines-view">
-            <h1>EuBIC Guidelines for Repodrucible MS-based Experiments</h1>
+            <h1>EuBIC Guidelines for Reproducible MS-based Experiments</h1>
             <span v-for="(author, index) in authors"> 
               <span v-if="index == authors.length -1">and</span>
               <span class="author-name">{{ author.name }}</span>

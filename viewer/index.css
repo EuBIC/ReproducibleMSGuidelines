@@ -67,6 +67,20 @@
     color: #333;
 }
 
+.modal-dialog {
+    max-width: 900px;
+}
+
+.modal-body {
+    max-height: 60vh;
+    overflow: auto;
+}
+
+.modal {
+    display: block;
+    background-color: rgba(70, 70, 70, 0.5);
+}
+
 .side-menu .field-selector {
     margin-top: 2em;
     font-size: 1.2em;
@@ -115,3 +129,13 @@
     display: inline-block;
     margin-right: -2px;
 }
+
+/**
+ * ------------- Transitions -------------------
+*/
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }

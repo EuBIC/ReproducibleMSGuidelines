@@ -49,6 +49,48 @@ function extractAuthorsFromMarkdown(markdown) {
 }
 
 /**
+ * Extracts the introductory paragraphs from the guidelines document.
+ * 
+ * @param {string} markdown Markdown text to parse.
+ */
+function extractIntroductionFromMarkdown(markdown) {
+    // process everything line by line
+    var lines = markdown.split("\n");
+
+    var introduction = "";
+
+    // starts at "## Scope"
+    var startLine = -1;
+
+    for (var lineNumber = 0; lineNumber < lines.length; lineNumber++) {
+        if (lines[lineNumber].trim().substr(0, 8).toLowerCase() == "## scope") {
+            startLine = lineNumber + 1;
+            break;
+        }
+    }
+
+    // make sure the start was found
+    if (startLine < 0) {
+        console.debug("Failed to find beginning of introduction part (## scope)")
+        return(null);
+    }
+
+    // all lines following "scope" are part of the introduction
+    for (var lineNumber = startLine; lineNumber < lines.length; lineNumber++) {
+        // check if the items start
+        var line = lines[lineNumber].trim();
+
+        if (line.substr(0, 4) == "### ") {
+            break;
+        }
+
+        introduction += line + "\n";
+    }
+
+    return(introduction);
+}
+
+/**
  * Function to parse the markdown string
  */
 function parseMarkdown(markdown) {
@@ -337,7 +379,23 @@ var guidelines_item = {
         categories: {Bronze: true, Silver: true, Gold: true},
         visible_categories: ["Bronze", "Silver", "Gold"],
         authors: [],
-        show_menu: false
+        show_menu: false,
+        show_introduction: false,
+        introduction: null,
+      },
+      watch:  {
+            /**
+             * Disable body scrolling if the introduction pop-up is shown.
+             */
+            show_introduction: function() {
+                if (this.show_introduction) {
+                    document.documentElement.style.overflow = 'hidden';
+                    document.body.scroll = "no";
+                } else {
+                    document.documentElement.style.overflow = 'scroll';
+                    document.body.scroll = "yes";
+                }
+            }
       },
       methods: {
         onToggleCategory: function(category) {
@@ -457,6 +515,9 @@ var guidelines_item = {
 
             this.field_states = all_fields;
             this.visible_fields = Object.keys(this.field_states);
+
+            // get the introduction
+            this.introduction = extractIntroductionFromMarkdown(response.data);
           }.bind(this))
       }
   })
