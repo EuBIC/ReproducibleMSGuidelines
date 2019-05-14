@@ -63,9 +63,11 @@
     
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3 col-lg-2 side-menu">
-            <field-selector class="d-none d-md-block" v-bind:fields="field_states" v-on:toggle-field="onToggleField"></field-selector>
-            <field-selector class="d-none d-md-block" v-bind:fields="categories" title="Shown categories" v-on:toggle-field="onToggleCategory"></field-selector>
+          <div class="col-md-3 col-lg-2">
+            <div class="side-menu">
+              <field-selector class="d-none d-md-block" v-bind:fields="field_states" v-on:toggle-field="onToggleField"></field-selector>
+              <field-selector class="d-none d-md-block" v-bind:fields="categories" title="Shown categories" v-on:toggle-field="onToggleCategory"></field-selector>
+            </div>
           </div>
           <div class="col-md-9 col-lg-7 guidelines-view">
             <h1>EuBIC Guidelines for Reproducible MS-based Experiments</h1>
@@ -80,10 +82,22 @@
             v-bind:name="section.name" 
             v-bind:description="section.description"
             v-bind:example="section.example"
-            v-bind:items="section.items">
+            v-bind:items="section.items"
+            v-bind:id="section.id">
             </guidelines-section>
           </div>
+          <div class="d-none d-lg-block col-lg-3">
+            <div class="toc">
+              <h2>Table of Contents</h2>
+              <ol>
+                <li v-for="section in sections">
+                  <a v-bind:href="'#' + section.id">{{ section.name }}</a>
+                </li>
+              </ol>
+            </div>
+          </div>
         </div>
+        
       </div>
     </div>
 

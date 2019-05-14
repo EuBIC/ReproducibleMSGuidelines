@@ -81,6 +81,10 @@
     background-color: rgba(70, 70, 70, 0.5);
 }
 
+.side-menu {
+    position: fixed;
+}
+
 .side-menu .field-selector {
     margin-top: 2em;
     font-size: 1.2em;
@@ -128,6 +132,22 @@
     height: 14px;
     display: inline-block;
     margin-right: -2px;
+}
+
+.toc {
+    margin-top: 2em;
+    padding-left: 1em;
+    border-left: 1px solid #333333;
+    position: fixed;
+}
+
+.toc a {
+    color: #333;
+}
+
+.toc a:hover {
+    color: #000;
+    text-decoration: none;
 }
 
 /**

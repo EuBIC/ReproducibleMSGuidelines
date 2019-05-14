@@ -103,9 +103,8 @@ function parseMarkdown(markdown) {
     var current_section = null;
     var current_item = null;
     var last_field = null;
-    var in_item = false;
-    var in_section = false;
     var current_line_number = 0;
+    var current_section_number = 0;
 
    lines.forEach(function(line) {
         line = line.trim();
@@ -113,7 +112,7 @@ function parseMarkdown(markdown) {
         
         // test if the line is a section heading
         if (line.substr(0, 4) == "### ") {
-            in_section = true;
+            current_section_number++;
 
             // save the last item
             if (current_section != null && current_item != null) {
@@ -131,7 +130,8 @@ function parseMarkdown(markdown) {
                 name: line.substr(4),
                 description: null,
                 example: null,
-                items: []
+                items: [],
+                id: "section_" + current_section_number
             };
         }
         // process the section fields
@@ -269,38 +269,39 @@ var guidelines_item = {
   };
   Vue.component('guidelines-item', guidelines_item);
 
-  Vue.component("guidelines-section", {
-      props: ["name", "description", "example", "items"],
-      data: function() {
-          return {
-              show: false
-          }
-      },
-      template: '\
-      <div class="guidelines-section">\
-        <h1 class="guidelines-section-name" v-bind:class="{\'border-bottom\': show}">{{ name }}\
-            <span class="badge badge-pill badge-secondary"> {{ items.length }}</span>\
-            <i v-on:click="show = !show" class="far" v-bind:class="{\'fa-plus-square\': !show, \'fa-minus-square\': show}"></i>\
-        </h1>\
-        <div class="guidelines-section-description" v-if="description">\
-            <div class="shadow-sm p-3 mb-5 bg-white rounded">{{ description }}</div>\
-        </div>\
-        <div class="guidelines-section-example" v-if="example">{{ example }}</div>\
-        <div class="guidelines-section-items" v-if="show">\
-            <div id="guidelines">\
-                <guidelines-item\
-                    v-for="item in items" \
-                    v-bind:name="item.name" \
-                    v-bind:description="item.description" \
-                    v-bind:category="item.category" \
-                    v-bind:fields="item.fields" \
-                    v-bind:example="item.example"\
-                    v-bind:start_line="item.start_line"></guidelines-item> \
-            </div>\
-        </div>\
+  var section_item = {
+    props: ["name", "description", "example", "items", "id"],
+    data: function() {
+        return {
+            show: false
+        }
+    },
+    template: '\
+    <div class="guidelines-section" v-bind:id="id">\
+      <h1 class="guidelines-section-name" v-bind:class="{\'border-bottom\': show}">{{ name }}\
+          <span class="badge badge-pill badge-secondary"> {{ items.length }}</span>\
+          <i v-on:click="show = !show" class="far" v-bind:class="{\'fa-plus-square\': !show, \'fa-minus-square\': show}"></i>\
+      </h1>\
+      <div class="guidelines-section-description" v-if="description">\
+          <div class="shadow-sm p-3 mb-5 bg-white rounded">{{ description }}</div>\
       </div>\
-      '
-  });
+      <div class="guidelines-section-example" v-if="example">{{ example }}</div>\
+      <div class="guidelines-section-items" v-if="show">\
+          <div id="guidelines">\
+              <guidelines-item\
+                  v-for="item in items" \
+                  v-bind:name="item.name" \
+                  v-bind:description="item.description" \
+                  v-bind:category="item.category" \
+                  v-bind:fields="item.fields" \
+                  v-bind:example="item.example"\
+                  v-bind:start_line="item.start_line"></guidelines-item> \
+          </div>\
+      </div>\
+    </div>\
+    '
+};
+Vue.component("guidelines-section", section_item);
 
 
   /**
@@ -454,7 +455,8 @@ var guidelines_item = {
                     name: section.name,
                     description: section.description,
                     example: section.example,
-                    items: []
+                    items: [],
+                    id: section.id
                 };
 
                 section.items.forEach(function(item) {
