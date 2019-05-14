@@ -255,13 +255,13 @@ var guidelines_item = {
                     v-bind:class="{\'btn-outline-info\': !show_description, \'btn-info\': show_description}">Description</button>\
             <button v-if="example" v-on:click="show_example = !show_example"\
                     class="btn btn-sm"\
-                v-bind:class="{\'btn-outline-info\': !show_example, \'btn-info\': show_example}">Description</button>\
+                v-bind:class="{\'btn-outline-info\': !show_example, \'btn-info\': show_example}">Example</button>\
         </div>\
         <div class="guideline-item-description" v-if="description && show_description">\
             <h4>Description</h4>\
             <div v-html="marked(description)"></div>\
         </div>\
-        <div class="guideline-item-example" v-if="example && show_example">\
+        <div class="guideline-item-description" v-if="example && show_example">\
             <h4>Example</h4>\
             <div v-html="marked(example)"></div>\
         </div>\
