@@ -179,26 +179,32 @@ function parseMarkdown(markdown) {
             last_field = "item_example";
         }
         // process multi-line fields
-        else if (line.length > 0 && current_item != null) {
+        else if (line.length > 0) {
             switch(last_field) {
                 case "section_description":
-                    current_section.description += " " + line;
+                    if (current_section != null)
+                        current_section.description += " " + line;
                     break;
                 case "section_example":
-                    current_section.example += " " + line;
+                    if (current_section != null)
+                        current_section.example += " " + line;
                     break;
                 case "item_name":
-                    current_item.name += " " + line;
+                    if (current_item != null)
+                        current_item.name += " " + line;
                     break;
                 case "item_description":
-                    current_item.description += " " + line;
+                    if (current_item != null)
+                        current_item.description += " " + line;
                     break;
                 case "item_fields":
                     // TODO: check if fields ends with ","
-                    current_item.fields += "," + line;
+                    if (current_item != null)
+                        current_item.fields += "," + line;
                     break;
                 case "item_example":
-                    current_item.example += " " + line;
+                    if (current_item != null)
+                        current_item.example += " " + line;
                     break;
             }
         }
@@ -278,9 +284,9 @@ var guidelines_item = {
     },
     template: '\
     <div class="guidelines-section" v-bind:id="id">\
-      <h1 class="guidelines-section-name" v-bind:class="{\'border-bottom\': show}">{{ name }}\
+      <h1 class="guidelines-section-name" v-bind:class="{\'border-bottom\': show}" v-on:click="show = !show">{{ name }}\
           <span class="badge badge-pill badge-secondary"> {{ items.length }}</span>\
-          <i v-on:click="show = !show" class="far" v-bind:class="{\'fa-plus-square\': !show, \'fa-minus-square\': show}"></i>\
+          <i class="far" v-bind:class="{\'fa-plus-square\': !show, \'fa-minus-square\': show}"></i>\
       </h1>\
       <div class="guidelines-section-items" v-if="show">\
         <div class="guidelines-section-description" v-if="description">\
