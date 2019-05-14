@@ -369,7 +369,7 @@ Fields: all
 
 Name: Underlying data for all figures (where applicable) is made available  
 Category: Gold  
-Desciprtion:   
+Description:   
 Fields: all
 
 
