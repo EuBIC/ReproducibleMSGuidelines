@@ -241,6 +241,12 @@ var guidelines_item = {
         createMailLink: function() {
             return "mailto:jgriss@ebi.ac.uk?subject=Feedback on MS Guidelines #" + 
             this.start_line + "&body=Feedback on \"" + this.name + "\" (Line " + this.start_line + "):";
+        },
+        createGitHubLink: function() {
+            return "https://github.com/jgriss/ReproducibleMSGuidelines/issues/new?title=" +
+            "Guidelines " + this.start_line + ": " + this.name + 
+            "&body=Enter your feedback / points of discussion here" +
+            "&labels=guidelines&assignee=jgriss"
         }
     },
     template: '\
@@ -249,12 +255,12 @@ var guidelines_item = {
         <div class="guideline-item-scope">\
             <span class="category badge" v-bind:class="[category.toLowerCase()]">{{ category }}</span>\
             <span v-for="field in field_array" class="badge badge-pill badge-info">{{ field }}</span>\
+            <a class="guidelines-item-github_link" target="_blank" title="Create issue for discussion on GitHub"\
+               v-bind:href="createGitHubLink()">\
+                <i class="fab fa-github"></i>\
+            </a>\
             <a class="guidelines-item-feedback" v-bind:href="createMailLink()" title="Post feedback using e-mail">\
                 <i class="far fa-comment-alt"></i>\
-            </a>\
-            <a class="guidelines-item-github_link" target="_blank" title="View on GitHub"\
-               v-bind:href="\'https://github.com/jgriss/ReproducibleMSGuidelines/blame/master/guidelines.md#L\' + start_line">\
-                <i class="fab fa-github"></i>\
             </a>\
             <button v-if="description" v-on:click="show_description = !show_description"\
                     class="btn btn-sm"\
