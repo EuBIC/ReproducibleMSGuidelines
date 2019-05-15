@@ -239,7 +239,7 @@ var guidelines_item = {
     },
     methods: {
         createMailLink: function() {
-            return "mailto:jgriss@ebi.ac.uk?subject=Feedback on MS Guidelines #" + 
+            return "mailto:eubic-guidelines@googlegroups.com?subject=Feedback on MS Guidelines #" + 
             this.start_line + "&body=Feedback on \"" + this.name + "\" (Line " + this.start_line + "):";
         },
         createGitHubLink: function() {
