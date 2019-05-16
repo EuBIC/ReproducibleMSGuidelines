@@ -95,18 +95,18 @@ Fields: Proteomics, ProteoGenomics
 
 Name: The mass spectra are provided in the HUPO-PSI standard file format mzML.  
 Category: Gold   
-Description: mzML is a HUPO-PSI data format that store mass spectrometry data (e.g mass spectra, chromatograms) using controlled vocabulary terms. mzML, is a well tested open-source and XML-based format.   
+Description: [mzML](http://www.psidev.info/mzML) is a HUPO-PSI data format that store mass spectrometry data (e.g mass spectra, chromatograms) using controlled vocabulary terms. mzML, is a well tested open-source and XML-based format.   
 Fields: Proteomics, ProteoGenomics, Metabolomics, Lipidomics
 
 Name: The identification information (PSMs / Petides / Proteins) are provided in the HUPO-PSI format mzIdentML or mzTab.  
 Category: Gold  
-Description: This relates to the search results. As most proteomics search engines support mzIdentML and mzTab, the files generated
+Description: This relates to the search results. As most proteomics search engines support [mzIdentML](http://www.psidev.info/mzidentml) and [mzTab](http://www.psidev.info/mztab), the files generated
 by the search engine should be uploaded to the same repository as the mass spectrometer's raw data.
 Fields: Proteomics, ProteoGenomics  
 
 Name: The Quantitative information of is made available in the HUPO-PSI standard file format mzTab.   
 Category: Gold  
-Description: mzTab is a HUPO-PSI standard file fomat that store proteomics and metabolomics identification and quantification results including: Peptide spectrum matches, Peptides, metabolites and proteins. 
+Description: [mzTab](http://www.psidev.info/mztab) is a HUPO-PSI standard file fomat that store proteomics and metabolomics identification and quantification results including: Peptide spectrum matches, Peptides, metabolites and proteins. 
 Fields: Proteomics, ProteoGenomics, Metabolomics  
 
 Name: Samples are annotated with metadata within the HUPO-PSI files (mzTab) or other standards for experimental design such as IsaTab.  
@@ -129,7 +129,7 @@ Fields: ProteoGenomics
 
 Name: Data should be deposited in one of the following archives: Metabolights, MassIVE  
 Category: Silver   
-Description: Metabolights and MassIVE are the two major archives for metabolomics data in the world. These two archives implements standard protocols for data submission and dissemination of metabolomics data.      
+Description: [Metabolights](https://www.ebi.ac.uk/metabolights/) and [MassIVE](https://massive.ucsd.edu) are the two major archives for metabolomics data in the world. These two archives implements standard protocols for data submission and dissemination of metabolomics data.      
 Fields: Metabolomics  
 
 
@@ -248,7 +248,7 @@ Fields: Proteomics, ProteoGenomics
 
 Name: The method used to create a decoy database is specified  
 Category: Bronze   
-Description: During the peptide identication step, commonly the search engine use a decoy database to statistically access the queality of the peptide identifications. Multiple methods are available to generate the decoy databases (e.g reverse, random, etc). We recommended to mention the stategy use to genrate the decoy database in the main manuscript.    
+Description: During the peptide identification step, the search engine use a decoy database to statistically access the queality of the peptide identifications. Multiple methods are available to generate the decoy databases (e.g reverse, random, etc). We recommended to mention the stategy use to genrate the decoy database in the main manuscript.    
 Fields: Proteomics, ProteoGenomics  
 
 Name: If a custom (ie. non-publicly available) database was used, this database is deposited in the public repository or submitted as supplementary data  
@@ -263,7 +263,7 @@ Fields: Proteomics, ProteoGenomics
 
 Name: The search engine(s) including their exact versions is/are specified  
 Category: Bronze  
-Description: During the identification step a search engine tool is used to map the obtained mass spectra to the corresponding peptide sequence. In this rule, we recommended to report in the main manuscript the software version.   
+Description: During the identification step a `search engine` is used to map the obtained mass spectra to the corresponding peptide sequence. In this rule, we recommended to report in the main manuscript the software version.   
 Fields: Proteomics, ProteoGenomics
 
 Name: All relevant, non-default settings, such as precursor ion tolerance, fragment ion tolerance, in-silico digestion rule (ie. enzyme), allowed missed cleavages, static and variable post-translational modifications are specified  
