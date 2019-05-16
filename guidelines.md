@@ -223,7 +223,7 @@ Category: Bronze
 Description: This is only required if custom software was used to process the RAW data.
 Fields: all 
 
-###  Manual curation
+###  Manual Curation
 
 Name: If the data were manually curated (for example using Skyline) the curated dataset is deposited alongside the RAW data in a public repository    
 Category: Bronze    
