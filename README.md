@@ -2,6 +2,8 @@
 
 This project aims at defining a set of guidelines to report mass spectrometry-based experiments in a reproducible fashion.
 
+To view the guidelines, use https://eubic.github.io/ReproducibleMSGuidelines. This uses a JavaScript application to render the actual `guidelines.md` document. This rendering tool can also be used offline when downloading the repositories content and opening the `index.html` file.
+
 ## Introduction
 
 There is a growing concern about a lack of reproducibility in science that also affects bioinformatics and mass spectrometry (MS-based) technologies. One aspect of this problem is that bioinformatic analysis are increasingly complex and greatly influence the outcome of a study. Current bioinformatic analysis commonly consist of multiple tools and algorithms, each with its own set of parameters. Recording all of these settings in full detail is rarely possible in methods sections of a research manuscript. This often leads to vital details about the bioinformatic processing of the data to be missing. In this work, we, therefore, try to establish a set of guidelines to describe 
