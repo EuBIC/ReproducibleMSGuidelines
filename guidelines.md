@@ -128,7 +128,7 @@ Fields: ProteoGenomics
 
 Name: Data should be deposited in one of the following archives: Metabolights, MassIVE  
 Category: Silver   
-Description:     
+Description: Metabolights and MassIVE are the two major archives for metabolomics data in the world. These two archives implements standard protocols for data submission and dissemination of metabolomics data.      
 Fields: Metabolomics  
 
 
@@ -140,9 +140,8 @@ SectionDescription: This section refers to the requirements of how the bioinform
 Name: All used software is named including the exact version and the availability
 Category: Bronze    
 Description: The used software must be unambiguously named. This includes, for example, the used download link for public software or reference to the company.
-The provided information should be sufficient for anyone to retrieve the exact same piece of software (if still available).    
+The provided information should be sufficient for anyone to retrieve the exact same piece of software (if still available). 
 Fields: all   
-
 
 Name: Any non-publicly available / custom scripts are available to the reviewers      
 Category: Bronze      
@@ -162,7 +161,7 @@ Fields: all
 
 Name: All external resources (UniProt, GO, Ensembl, Reactome, etc.) are referenced and the version/release date/date of access documented    
 Category: Bronze    
-Description:      
+Description: During the downstream analysis different databases are commonly use, for example Uniprot, Intact, Reactome. Some of these databases are used througth R packages, and desktop applications. However, the version of the tool is not enough to reproduce the original results, because the same tool version can be use with different dtabase versions. We recommended to include the version/release/date of the data provider in addition to the tool version.    
 Fields: all   
 
 Name: The operating system and its version under which the analysis was carried out is specified    
@@ -248,7 +247,7 @@ Fields: Proteomics, ProteoGenomics
 
 Name: The method used to create a decoy database is specified  
 Category: Bronze   
-Description:   
+Description: During the peptide identication step, commonly the search engine use a decoy database to statistically access the queality of the peptide identifications. Multiple methods are available to generate the decoy databases (e.g reverse, random, etc). We recommended to mention the stategy use to genrate the decoy database in the main manuscript.    
 Fields: Proteomics, ProteoGenomics  
 
 Name: If a custom (ie. non-publicly available) database was used, this database is deposited in the public repository or submitted as supplementary data  
