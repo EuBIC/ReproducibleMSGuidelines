@@ -5,7 +5,7 @@ European Bioinformatics Community
 
 ## Title: Minimal Guidelines for Reproducible MS-based Research
 ## Version: v0.1
-## Authors: Johannes Griss (http://orcid.org/0000-0003-2206-9511), Wout	Bittremieux (http://orcid.org/0000-0002-3105-1359), David Bouyssié , Vladimir	Gorshkov (http://orcid.org/0000-0003-0170-5785), Marie Locard-Paulet (http://orcid.org/0000-0003-2879-9224), Timo Sachsenberg (http://orcid.org/0000-0002-2833-6070), Veit Schwämmle (http://orcid.org/0000-0002-9708-6722), Marc Vaudel (), Mathias Walzer (http://orcid.org/0000-0003-4538-2754), Sander Willems (http://orcid.org/0000-0002-7124-610X), Yasset Perez-Riverol (http://orcid.org/0000-0001-6579-6941) and the EuBIC Community. 
+## Authors: Johannes Griss (http://orcid.org/0000-0003-2206-9511), Wout	Bittremieux (http://orcid.org/0000-0002-3105-1359), David Bouyssié , Vladimir	Gorshkov (http://orcid.org/0000-0003-0170-5785), Marie Locard-Paulet (http://orcid.org/0000-0003-2879-9224), Timo Sachsenberg (http://orcid.org/0000-0002-2833-6070), Veit Schwämmle (http://orcid.org/0000-0002-9708-6722), Julian Uszkoreit (http://orcid.org/0000-0001-7522-4007), Marc Vaudel (), Mathias Walzer (http://orcid.org/0000-0003-4538-2754), Sander Willems (http://orcid.org/0000-0002-7124-610X), Yasset Perez-Riverol (http://orcid.org/0000-0001-6579-6941) and the EuBIC Community. 
 
 ## Scope
 
