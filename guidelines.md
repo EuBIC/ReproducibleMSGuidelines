@@ -369,7 +369,7 @@ Fields: all
 
 Name: Underlying data for all figures (where applicable) is made available  
 Category: Gold  
-Description: During the downstream analysis multiple figures commplements the final results of the manuscript. We recommend to make all figures available (where applicable) as supplementary information of the manuscript or as part of the dataset (e.g. Quality control reports).  
+Description: During the downstream analysis multiple figures complement the final results of the manuscript. We recommend to make the underlying data of all figures available (where applicable) as supplementary information of the manuscript or as part of the dataset. Ideally, the code to create these figures should be made available as well (for example using [Jupyter notebooks](https://jupyter.org)).
 Fields: all
 
 
