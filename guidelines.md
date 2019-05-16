@@ -243,7 +243,7 @@ Fields: all
 
 Name: The protein sequence database used including the exact version/date of download (if a release version is not available) are described  
 Category: Bronze    
-Description:   
+Description: During the protein identification step, the spectrum identification search engine algorithm commonly uses a  protein sequence FASTA database from public resources (e.g. ENSEMBL, Uniprot). If the original FASTA file from the resource is not transform/change and the release number of the file is not available; the exact version/date of the downloaded FASTA file should be provided.  
 Fields: Proteomics, ProteoGenomics  
 
 Name: The method used to create a decoy database is specified  
@@ -263,7 +263,7 @@ Fields: Proteomics, ProteoGenomics
 
 Name: The search engine(s) including their exact versions is/are specified  
 Category: Bronze  
-Description:  
+Description: During the identification step a search engine tool is used to map the obtained mass spectra to the corresponding peptide sequence. In this rule, we recommended to report in the main manuscript the software version.   
 Fields: Proteomics, ProteoGenomics
 
 Name: All relevant, non-default settings, such as precursor ion tolerance, fragment ion tolerance, in-silico digestion rule (ie. enzyme), allowed missed cleavages, static and variable post-translational modifications are specified  
@@ -369,7 +369,7 @@ Fields: all
 
 Name: Underlying data for all figures (where applicable) is made available  
 Category: Gold  
-Description:   
+Description: During the downstream analysis multiple figures commplements the final results of the manuscript. We recommend to make all figures available (where applicable) as supplementary information of the manuscript or as part of the dataset (e.g. Quality control reports).  
 Fields: all
 
 
