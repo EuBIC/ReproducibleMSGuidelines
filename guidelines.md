@@ -67,7 +67,8 @@ Fields: all
 
 Name: Linked to matched data, e.g. transcriptomics is provided  
 Category: Silver  
-Description: 
+Description: The accession of the complementary omics data should be provided in the main manuscript. This data should be 
+available in another public repository (e.g. RNA-seq dataset in ArrayExpress). 
 Example: [PXD008960](https://www.ebi.ac.uk/pride/archive/projects/PXD008960) by Ren *et al.* is an example of a proteo-genomics study where RNA-seq data
 is linked to proteomics data.
 Fields: all   
@@ -84,7 +85,7 @@ Fields: all
 
 Name: The data repository is part of [ProteomeXchange](http://www.proteomexchange.org/)  
 Category: Bronze  
-Description:    
+Description: The ProteomeXchange Consortium coordinates standard data submission and dissemination guidelines of proteomics data. It encourages open data policies in the field of proteomics and guarantees the long-term maintainability of the data.
 Fields:  Proteomics, ProteoGenomics    
 
 Name: Acquisition method files are made available together with the Raw data     
@@ -94,19 +95,19 @@ Fields: Proteomics, ProteoGenomics
 
 Name: The mass spectra are provided in the HUPO-PSI standard file format mzML.  
 Category: Gold   
-Description:
+Description: [mzML](http://www.psidev.info/mzML) is a HUPO-PSI data format that store mass spectrometry data (e.g mass spectra, chromatograms) using controlled vocabulary terms. mzML, is a well tested open-source and XML-based format.   
 Fields: Proteomics, ProteoGenomics, Metabolomics, Lipidomics
 
 Name: The identification information (PSMs / Petides / Proteins) are provided in the HUPO-PSI format mzIdentML or mzTab.  
 Category: Gold  
-Description: This relates to the search results. As most proteomics search engines support mzIdentML and mzTab, the files generated
+Description: This relates to the search results. As most proteomics search engines support [mzIdentML](http://www.psidev.info/mzidentml) and [mzTab](http://www.psidev.info/mztab), the files generated
 by the search engine should be uploaded to the same repository as the mass spectrometer's raw data.
 Fields: Proteomics, ProteoGenomics  
 
-Name: The Quantitative information of is made available in the mzTab file format.  
+Name: The Quantitative information of is made available in the HUPO-PSI standard file format mzTab.   
 Category: Gold  
-Description:   
-Fields: Proteomics, ProteoGenomics  
+Description: [mzTab](http://www.psidev.info/mztab) is a HUPO-PSI standard file fomat that store proteomics and metabolomics identification and quantification results including: Peptide spectrum matches, Peptides, metabolites and proteins. 
+Fields: Proteomics, ProteoGenomics, Metabolomics  
 
 Name: Samples are annotated with metadata within the HUPO-PSI files (mzTab) or other standards for experimental design such as IsaTab.  
 Category: Gold  
@@ -128,7 +129,7 @@ Fields: ProteoGenomics
 
 Name: Data should be deposited in one of the following archives: Metabolights, MassIVE  
 Category: Silver   
-Description:     
+Description: [Metabolights](https://www.ebi.ac.uk/metabolights/) and [MassIVE](https://massive.ucsd.edu) are the two major archives for metabolomics data in the world. These two archives implements standard protocols for data submission and dissemination of metabolomics data.      
 Fields: Metabolomics  
 
 
@@ -140,9 +141,8 @@ SectionDescription: This section refers to the requirements of how the bioinform
 Name: All used software is named including the exact version and the availability
 Category: Bronze    
 Description: The used software must be unambiguously named. This includes, for example, the used download link for public software or reference to the company.
-The provided information should be sufficient for anyone to retrieve the exact same piece of software (if still available).    
+The provided information should be sufficient for anyone to retrieve the exact same piece of software (if still available). 
 Fields: all   
-
 
 Name: Any non-publicly available / custom scripts are available to the reviewers      
 Category: Bronze      
@@ -162,7 +162,7 @@ Fields: all
 
 Name: All external resources (UniProt, GO, Ensembl, Reactome, etc.) are referenced and the version/release date/date of access documented    
 Category: Bronze    
-Description:      
+Description: During the downstream analysis different databases are commonly use, for example Uniprot, Intact, Reactome. Some of these databases are used througth R packages, and desktop applications. However, the version of the tool is not enough to reproduce the original results, because the same tool version can be use with different dtabase versions. We recommended to include the version/release/date of the data provider in addition to the tool version.    
 Fields: all   
 
 Name: The operating system and its version under which the analysis was carried out is specified    
@@ -224,7 +224,7 @@ Category: Bronze
 Description: This is only required if custom software was used to process the RAW data.
 Fields: all 
 
-###  Manual curation
+###  Manual Curation
 
 Name: If the data were manually curated (for example using Skyline) the curated dataset is deposited alongside the RAW data in a public repository    
 Category: Bronze    
@@ -243,12 +243,12 @@ Fields: all
 
 Name: The protein sequence database used including the exact version/date of download (if a release version is not available) are described  
 Category: Bronze    
-Description:   
+Description: During the protein identification step, the spectrum identification search engine algorithm commonly uses a  protein sequence FASTA database from public resources (e.g. ENSEMBL, Uniprot). If the original FASTA file from the resource is not transform/change and the release number of the file is not available; the exact version/date of the downloaded FASTA file should be provided.  
 Fields: Proteomics, ProteoGenomics  
 
 Name: The method used to create a decoy database is specified  
 Category: Bronze   
-Description:   
+Description: During the peptide identification step, the search engine use a decoy database to statistically access the queality of the peptide identifications. Multiple methods are available to generate the decoy databases (e.g reverse, random, etc). We recommended to mention the stategy use to genrate the decoy database in the main manuscript.    
 Fields: Proteomics, ProteoGenomics  
 
 Name: If a custom (ie. non-publicly available) database was used, this database is deposited in the public repository or submitted as supplementary data  
@@ -263,7 +263,7 @@ Fields: Proteomics, ProteoGenomics
 
 Name: The search engine(s) including their exact versions is/are specified  
 Category: Bronze  
-Description:  
+Description: During the identification step a `search engine` is used to map the obtained mass spectra to the corresponding peptide sequence. In this rule, we recommended to report in the main manuscript the software version.   
 Fields: Proteomics, ProteoGenomics
 
 Name: All relevant, non-default settings, such as precursor ion tolerance, fragment ion tolerance, in-silico digestion rule (ie. enzyme), allowed missed cleavages, static and variable post-translational modifications are specified  
@@ -369,7 +369,7 @@ Fields: all
 
 Name: Underlying data for all figures (where applicable) is made available  
 Category: Gold  
-Description:   
+Description: During the downstream analysis multiple figures complement the final results of the manuscript. We recommend to make the underlying data of all figures available (where applicable) as supplementary information of the manuscript or as part of the dataset. Ideally, the code to create these figures should be made available as well (for example using [Jupyter notebooks](https://jupyter.org)).
 Fields: all
 
 
