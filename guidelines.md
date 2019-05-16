@@ -67,7 +67,8 @@ Fields: all
 
 Name: Linked to matched data, e.g. transcriptomics is provided  
 Category: Silver  
-Description: 
+Description: The accession of the complementary omics data should be provided in the main manuscript. This data should be 
+available in another public repository (e.g. RNA-seq dataset in ArrayExpress). 
 Example: [PXD008960](https://www.ebi.ac.uk/pride/archive/projects/PXD008960) by Ren *et al.* is an example of a proteo-genomics study where RNA-seq data
 is linked to proteomics data.
 Fields: all   
@@ -84,8 +85,7 @@ Fields: all
 
 Name: The data repository is part of [ProteomeXchange](http://www.proteomexchange.org/)  
 Category: Bronze  
-Description:    
-Fields:  Proteomics, ProteoGenomics    
+Description: The ProteomeXchange Consortium coordinates standard data submission and dissemination guidelines of proteomics data. It encourages open data policies in the field of proteomics and guarantees the long-term maintainability of the data.  Fields:  Proteomics, ProteoGenomics    
 
 Name: Acquisition method files are made available together with the Raw data     
 Category: Silver  
@@ -94,7 +94,7 @@ Fields: Proteomics, ProteoGenomics
 
 Name: The mass spectra are provided in the HUPO-PSI standard file format mzML.  
 Category: Gold   
-Description:
+Description: mzML is a HUPO-PSI data format that store mass spectrometry data (e.g mass spectra, chromatograms) using controlled vocabulary terms. mzML, is a well tested open-source and XML-based format.   
 Fields: Proteomics, ProteoGenomics, Metabolomics, Lipidomics
 
 Name: The identification information (PSMs / Petides / Proteins) are provided in the HUPO-PSI format mzIdentML or mzTab.  
@@ -103,10 +103,10 @@ Description: This relates to the search results. As most proteomics search engin
 by the search engine should be uploaded to the same repository as the mass spectrometer's raw data.
 Fields: Proteomics, ProteoGenomics  
 
-Name: The Quantitative information of is made available in the mzTab file format.  
+Name: The Quantitative information of is made available in the HUPO-PSI standard file format mzTab.   
 Category: Gold  
-Description:   
-Fields: Proteomics, ProteoGenomics  
+Description: mzTab is a HUPO-PSI standard file fomat that store proteomics and metabolomics identification and quantification results including: Peptide spectrum matches, Peptides, metabolites and proteins. 
+Fields: Proteomics, ProteoGenomics, Metabolomics  
 
 Name: Samples are annotated with metadata within the HUPO-PSI files (mzTab) or other standards for experimental design such as IsaTab.  
 Category: Gold  
