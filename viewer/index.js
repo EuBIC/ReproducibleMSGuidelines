@@ -243,7 +243,7 @@ var guidelines_item = {
             this.start_line + "&body=Feedback on \"" + this.name + "\" (Line " + this.start_line + "):";
         },
         createGitHubLink: function() {
-            return "https://github.com/jgriss/ReproducibleMSGuidelines/issues/new?title=" +
+            return "https://github.com/eubic/ReproducibleMSGuidelines/issues/new?title=" +
             "Guidelines " + this.start_line + ": " + this.name + 
             "&body=Enter your feedback / points of discussion here" +
             "&labels=guidelines&assignee=jgriss"
