@@ -29,18 +29,18 @@ Contributions for any other MS-based method are highly welcome!
 
 ## The Guidelines
 
-The complete guidelines are stored in the `guidelines.md` file in this repository. The file is a standard markdown file that can be viewed [here](./guidelines.md).
+The complete guidelines are stored in the `guidelines.md` file in this repository. We created a JavaScript application that nicely renders this document as a webpage at https://eubic.github.io/ReproducibleMSGuidelines. The actual file is a standard markdown file that can be viewed [here](./guidelines.md).
 
 We are currently working on a more user-friendly web-based rendering of these guidelines.
 
 ## Who can contribute?
 
-Everyone! The creation of this guidelines as a completely community-driven project. [How to contribute](https://github.com/ypriverol/ReproducibleMSGuidelines/blob/master/CONTRIBUTING.md) 
+Everyone! The creation of this guidelines as a completely community-driven project. [How to contribute](https://github.com/eubic/ReproducibleMSGuidelines/blob/master/CONTRIBUTING.md) 
 
 ## How can I contribute?
 
   * Fork this repository, adapt the `guidelines.md` file and create a **pull request**
-  * Send an e-mail with your changes to `......`
+  * Send an e-mail with your changes to `eubic-guidelines@googlegroups.com`
   * If you want to work on a larger section of the document, let us know and we will move the Guidelines into a **Microsoft Word** document for you.
 
 ## Guidelines format
