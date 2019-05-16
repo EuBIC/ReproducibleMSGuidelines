@@ -85,7 +85,8 @@ Fields: all
 
 Name: The data repository is part of [ProteomeXchange](http://www.proteomexchange.org/)  
 Category: Bronze  
-Description: The ProteomeXchange Consortium coordinates standard data submission and dissemination guidelines of proteomics data. It encourages open data policies in the field of proteomics and guarantees the long-term maintainability of the data.  Fields:  Proteomics, ProteoGenomics    
+Description: The ProteomeXchange Consortium coordinates standard data submission and dissemination guidelines of proteomics data. It encourages open data policies in the field of proteomics and guarantees the long-term maintainability of the data.
+Fields:  Proteomics, ProteoGenomics    
 
 Name: Acquisition method files are made available together with the Raw data     
 Category: Silver  
