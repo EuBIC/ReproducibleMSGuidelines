@@ -225,7 +225,7 @@ function parseMarkdown(markdown) {
  * Component to render a single item
  */
 var guidelines_item = {
-    props: ["name", "description", "category", "fields", "example", "start_line"],
+    props: ["name", "description", "category", "fields", "example", "start_line", "eventhub"],
     data: function() {
       return {
           "show_description": false,
@@ -237,6 +237,12 @@ var guidelines_item = {
             return this.fields.split(",").map(value => value.trim());
         }
     },
+    created: function() {
+        this.eventhub.$on('show-all', this.showItems);
+    },
+    beforeDestroy: function () {
+        this.eventhub.$off('show-all', this.showItems);
+    },
     methods: {
         createMailLink: function() {
             return "mailto:eubic-guidelines@googlegroups.com?subject=Feedback on MS Guidelines #" + 
@@ -247,6 +253,10 @@ var guidelines_item = {
             "Guidelines " + this.start_line + ": " + this.name + 
             "&body=Enter your feedback / points of discussion here" +
             "&labels=guidelines&assignee=jgriss"
+        },
+        showItems: function() {
+            this.show_description = true;
+            this.show_example = true;
         }
     },
     template: '\
@@ -269,11 +279,11 @@ var guidelines_item = {
                     class="btn btn-sm"\
                 v-bind:class="{\'btn-outline-info\': !show_example, \'btn-info\': show_example}">Example</button>\
         </div>\
-        <div class="guideline-item-description" v-if="description && show_description">\
+        <div class="guideline-item-description" v-if="description" v-show="show_description">\
             <h4>Description</h4>\
             <div v-html="marked(description)"></div>\
         </div>\
-        <div class="guideline-item-description" v-if="example && show_example">\
+        <div class="guideline-item-description" v-if="example" v-show="show_example">\
             <h4>Example</h4>\
             <div v-html="marked(example)"></div>\
         </div>\
@@ -282,10 +292,21 @@ var guidelines_item = {
   Vue.component('guidelines-item', guidelines_item);
 
   var section_item = {
-    props: ["name", "description", "example", "items", "id"],
+    props: ["name", "description", "example", "items", "id", "eventhub"],
     data: function() {
         return {
             show: false
+        }
+    },
+    created: function() {
+        this.eventhub.$on('show-all', this.showItems);
+    },
+    beforeDestroy: function () {
+        this.eventhub.$off('show-all', this.showItems);
+    },
+    methods: {
+        showItems: function() {
+            this.show = true;
         }
     },
     template: '\
@@ -294,7 +315,7 @@ var guidelines_item = {
           <span class="badge badge-pill badge-secondary"> {{ items.length }}</span>\
           <i class="far" v-bind:class="{\'fa-plus-square\': !show, \'fa-minus-square\': show}"></i>\
       </h1>\
-      <div class="guidelines-section-items" v-if="show">\
+      <div class="guidelines-section-items" v-show="show">\
         <div class="guidelines-section-description" v-if="description">\
             <b>Description:</b> {{ description }}\
         </div>\
@@ -307,7 +328,8 @@ var guidelines_item = {
                 v-bind:category="item.category" \
                 v-bind:fields="item.fields" \
                 v-bind:example="item.example"\
-                v-bind:start_line="item.start_line"></guidelines-item> \
+                v-bind:start_line="item.start_line"\
+                v-bind:eventhub="eventhub"></guidelines-item> \
         </div>\
       </div>\
     </div>\
@@ -455,6 +477,10 @@ Vue.component("guidelines-section", section_item);
             }
 
             this.visible_fields = new_visible_fields;
+        },
+
+        expandAll: function() {
+            this.$emit("show-all");
         }
       },
       computed: {

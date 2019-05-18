@@ -68,6 +68,10 @@
             <div class="side-menu">
               <field-selector class="d-none d-md-block" v-bind:fields="field_states" v-on:toggle-field="onToggleField"></field-selector>
               <field-selector class="d-none d-md-block" v-bind:fields="categories" title="Shown categories" v-on:toggle-field="onToggleCategory"></field-selector>
+              <div class="field-selector d-none d-md-block">
+                <h1>Actions</h1>
+                <span class="badge badge-primary button" v-on:click="expandAll()" title="Expand all sections, descriptions, and examples.">Expand all</span>
+              </div>
             </div>
           </div>
           <div class="col-md-9 col-lg-7 guidelines-view">
@@ -84,7 +88,8 @@
             v-bind:description="section.description"
             v-bind:example="section.example"
             v-bind:items="section.items"
-            v-bind:id="section.id">
+            v-bind:id="section.id"
+            v-bind:eventhub="vm_guidelines">
             </guidelines-section>
           </div>
           <div class="d-none d-lg-block col-lg-3">

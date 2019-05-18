@@ -44,6 +44,10 @@
     border: 1px solid #6c757d;
 }
 
+span.button {
+    cursor: pointer;
+}
+
 .guideline-item {
     margin-top: 1em;    
 }
