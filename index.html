@@ -64,7 +64,7 @@
     
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3 col-lg-2">
+          <div class="col-md-3 col-lg-2 hidden-print">
             <div class="side-menu">
               <field-selector class="d-none d-md-block" v-bind:fields="field_states" v-on:toggle-field="onToggleField"></field-selector>
               <field-selector class="d-none d-md-block" v-bind:fields="categories" title="Shown categories" v-on:toggle-field="onToggleCategory"></field-selector>
@@ -92,7 +92,7 @@
             v-bind:eventhub="vm_guidelines">
             </guidelines-section>
           </div>
-          <div class="d-none d-lg-block col-lg-3">
+          <div class="d-none d-lg-block col-lg-3 hidden-print">
             <div class="toc">
               <h2>Table of Contents</h2>
               <ol>
