@@ -48,6 +48,16 @@ Category: Bronze
 Description:  The complete RAW data (ie. the mass spectrometer's raw files, such as `RAW` files for Thermo Fisher instruments) of any MS-based study must be deposited in a public repository to ensure reproducibility.
 Fields: all  
 
+Name: The data repository is part of [ProteomeXchange](http://www.proteomexchange.org/)  
+Category: Bronze  
+Description: The ProteomeXchange Consortium coordinates standard data submission and dissemination guidelines of proteomics data. It encourages open data policies in the field of proteomics and guarantees the long-term maintainability of the data.
+Fields:  Proteomics, ProteoGenomics  
+
+Name: Data should be deposited in one of the following repositories: Metabolights, MassIVE  
+Category: Silver   
+Description: [Metabolights](https://www.ebi.ac.uk/metabolights/) and [MassIVE](https://massive.ucsd.edu) are the two major archives for metabolomics data in the world. These two archives implement standard protocols for data submission and dissemination of metabolomics data.      
+Fields: Metabolomics  
+
 Name: Experimental design is deposited in a public repository  
 Category: Bronze  
 Description:  An accompanying file is made available which describes the experimental design in terms of sample id per raw file / isobaric channel, and fraction identifier, as well as any additional factors relevant to the experiment. This file should be deposited alongside the data in the public repository or must alternatively be submitted as a supplementary file with the manuscript.This file should indicate factors potentially relevant to batch effects (f.e. machine id, lab id, run date and time). If supported, this information should be made available using the repository’s standard method.
@@ -63,7 +73,6 @@ Category: Bronze
 Description: The assessment of raw data, or at least the way the data was submitted, is vital to the review process of a scientific publication. This
 allows reviewers to ensure that the data was deposited in a re-usable way.
 Fields: all    
-
 
 Name: Linked to matched data, e.g. transcriptomics is provided  
 Category: Silver  
@@ -81,12 +90,7 @@ Fields: all
 Name: For metanalysis papers, the identifiers of all reanalyzed datasets are mentioned in the manuscript    
 Category: Bronze    
 Description: For meta-analysis manuscripts where multiple public datasets are reanalyzed with a different approach or bioinformatics workflow, the identifier and the publication of each of these datasets should be cited in the manuscript.    
-Fields: all  
-
-Name: The data repository is part of [ProteomeXchange](http://www.proteomexchange.org/)  
-Category: Bronze  
-Description: The ProteomeXchange Consortium coordinates standard data submission and dissemination guidelines of proteomics data. It encourages open data policies in the field of proteomics and guarantees the long-term maintainability of the data.
-Fields:  Proteomics, ProteoGenomics    
+Fields: all    
 
 Name: Acquisition method files are made available together with the Raw data     
 Category: Silver  
@@ -126,11 +130,6 @@ Description: For example PRIDE (for proteomics data) and ArrayExpress (for expre
 proteomics datasets. If this feature is supported by the chosen repository, all 'omics datasets should also be linked at the repository
 level.
 Fields: ProteoGenomics
-
-Name: Data should be deposited in one of the following archives: Metabolights, MassIVE  
-Category: Silver   
-Description: [Metabolights](https://www.ebi.ac.uk/metabolights/) and [MassIVE](https://massive.ucsd.edu) are the two major archives for metabolomics data in the world. These two archives implements standard protocols for data submission and dissemination of metabolomics data.      
-Fields: Metabolomics  
 
 
 ### Basic Bioinformatics Analysis Description
