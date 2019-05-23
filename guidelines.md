@@ -166,7 +166,7 @@ Fields: all
 
 Name: The operating system and its version under which the analysis was carried out is specified    
 Category: Bronze     
-Description: As shown by [DiTommaso et al](https://www.nature.com/articles/nbt.3820) the choice of operating system may have a considerably effect on the generated results even if the same software was used.
+Description: As shown by [DiTommaso et al](https://www.nature.com/articles/nbt.3820) the choice of operating system may have a considerable effect on the generated results even if the same software was used.
 Fields: all    
 
 Name: Newly developed software/custom scripts are made publically available and deposited to a public code hosting platform
