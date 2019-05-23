@@ -76,7 +76,7 @@ Fields: all
 
 Name: Linked to matched data, e.g. transcriptomics is provided  
 Category: Silver  
-Description: The accession of the complementary omics data should be provided in the main manuscript. This data should be 
+Description: The accession of the complementary omics data should be provided in the main manuscript. These data should be 
 available in another public repository (e.g. RNA-seq dataset in ArrayExpress). 
 Example: [PXD008960](https://www.ebi.ac.uk/pride/archive/projects/PXD008960) by Ren *et al.* is an example of a proteo-genomics study where RNA-seq data
 is linked to proteomics data.
@@ -108,7 +108,7 @@ Description: This relates to the search results. As most proteomics search engin
 by the search engine should be uploaded to the same repository as the mass spectrometer's raw data.
 Fields: Proteomics, ProteoGenomics  
 
-Name: The Quantitative information of is made available in the HUPO-PSI standard file format mzTab.   
+Name: The Quantitative information is made available in the HUPO-PSI standard file format mzTab.   
 Category: Gold  
 Description: [mzTab](http://www.psidev.info/mztab) is a HUPO-PSI standard file fomat that store proteomics and metabolomics identification and quantification results including: Peptide spectrum matches, Peptides, metabolites and proteins. 
 Fields: Proteomics, ProteoGenomics, Metabolomics  
@@ -166,7 +166,7 @@ Fields: all
 
 Name: The operating system and its version under which the analysis was carried out is specified    
 Category: Bronze     
-Description: As shown by [DiTommaso et al](https://www.nature.com/articles/nbt.3820) the choice of operating system may have a considerably effect on the generated results even if the same software was used.
+Description: As shown by [DiTommaso et al](https://www.nature.com/articles/nbt.3820) the choice of operating system may have a considerable effect on the generated results even if the same software was used.
 Fields: all    
 
 Name: Newly developed software/custom scripts are made publically available and deposited to a public code hosting platform
@@ -178,7 +178,7 @@ Fields: all
 
 Name: A README file is provided that specifies the system requirements, installation guide, and instructions for use
 Category: Silver  
-Description: This refers to any any custom / new software developed by the authors.
+Description: This refers to any custom / new software developed by the authors.
 Fields: all 
 
 Name: The used software version can be identified through a DOI
@@ -188,7 +188,7 @@ Fields: all
 
 Name: Demo data is provided for newly developed software
 Category: Gold  
-Description: Next to a README file (see above), a demo dataset is distributed with the software together with a description how to run and what to expect from the provided data. This resembls the idea of vignettes in [R Bioconductor](https://www.bioconductor.org/) packages. If applicable, [Jupyter notebooks](https://jupyter.org) provide a very good platform to create and distribute such example analyses.
+Description: Next to a README file (see above), a demo dataset is distributed with the software together with a description how to run and what to expect from the provided data. This resembles the idea of vignettes in [R Bioconductor](https://www.bioconductor.org/) packages. If applicable, [Jupyter notebooks](https://jupyter.org) provide a very good platform to create and distribute such example analyses.
 Fields: all  
 
 ### Workflow Software
@@ -247,7 +247,7 @@ Fields: Proteomics, ProteoGenomics
 
 Name: The method used to create a decoy database is specified  
 Category: Bronze   
-Description: During the peptide identification step, the search engine use a decoy database to statistically access the queality of the peptide identifications. Multiple methods are available to generate the decoy databases (e.g reverse, random, etc). We recommended to mention the stategy use to genrate the decoy database in the main manuscript.    
+Description: During the peptide identification step, the search engine uses a decoy database to statistically access the quality of the peptide identifications. Multiple methods are available to generate the decoy databases (e.g reverse, random, etc). We recommend to mention the strategy used to generate the decoy database in the main manuscript.    
 Fields: Proteomics, ProteoGenomics  
 
 Name: If a custom (ie. non-publicly available) database was used, this database is deposited in the public repository or submitted as supplementary data  
