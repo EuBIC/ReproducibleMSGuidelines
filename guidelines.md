@@ -247,7 +247,7 @@ Fields: Proteomics, ProteoGenomics
 
 Name: The method used to create a decoy database is specified  
 Category: Bronze   
-Description: During the peptide identification step, the search engine use a decoy database to statistically access the queality of the peptide identifications. Multiple methods are available to generate the decoy databases (e.g reverse, random, etc). We recommended to mention the stategy use to genrate the decoy database in the main manuscript.    
+Description: During the peptide identification step, the search engine uses a decoy database to statistically access the quality of the peptide identifications. Multiple methods are available to generate the decoy databases (e.g reverse, random, etc). We recommende to mention the strategy used to generate the decoy database in the main manuscript.    
 Fields: Proteomics, ProteoGenomics  
 
 Name: If a custom (ie. non-publicly available) database was used, this database is deposited in the public repository or submitted as supplementary data  
