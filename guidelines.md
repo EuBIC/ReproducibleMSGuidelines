@@ -178,7 +178,7 @@ Fields: all
 
 Name: A README file is provided that specifies the system requirements, installation guide, and instructions for use
 Category: Silver  
-Description: This refers to any any custom / new software developed by the authors.
+Description: This refers to any custom / new software developed by the authors.
 Fields: all 
 
 Name: The used software version can be identified through a DOI
