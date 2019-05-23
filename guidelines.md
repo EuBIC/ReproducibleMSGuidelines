@@ -188,7 +188,7 @@ Fields: all
 
 Name: Demo data is provided for newly developed software
 Category: Gold  
-Description: Next to a README file (see above), a demo dataset is distributed with the software together with a description how to run and what to expect from the provided data. This resembls the idea of vignettes in [R Bioconductor](https://www.bioconductor.org/) packages. If applicable, [Jupyter notebooks](https://jupyter.org) provide a very good platform to create and distribute such example analyses.
+Description: Next to a README file (see above), a demo dataset is distributed with the software together with a description how to run and what to expect from the provided data. This resembles the idea of vignettes in [R Bioconductor](https://www.bioconductor.org/) packages. If applicable, [Jupyter notebooks](https://jupyter.org) provide a very good platform to create and distribute such example analyses.
 Fields: all  
 
 ### Workflow Software
