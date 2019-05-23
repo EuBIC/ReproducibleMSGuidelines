@@ -108,7 +108,7 @@ Description: This relates to the search results. As most proteomics search engin
 by the search engine should be uploaded to the same repository as the mass spectrometer's raw data.
 Fields: Proteomics, ProteoGenomics  
 
-Name: The Quantitative information of is made available in the HUPO-PSI standard file format mzTab.   
+Name: The Quantitative information is made available in the HUPO-PSI standard file format mzTab.   
 Category: Gold  
 Description: [mzTab](http://www.psidev.info/mztab) is a HUPO-PSI standard file fomat that store proteomics and metabolomics identification and quantification results including: Peptide spectrum matches, Peptides, metabolites and proteins. 
 Fields: Proteomics, ProteoGenomics, Metabolomics  
