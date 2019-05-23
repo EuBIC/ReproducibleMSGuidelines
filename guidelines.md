@@ -37,7 +37,7 @@ The guidelines are organized by sections (e.g. Public Data Deposition). Each sec
 
 **ProteoGenomics** can be considered a specific subfield of MS-based proteomics studies in which more complex analysis are performed.
  
-Some of the rules are design for **metanalysis** manuscripts. A metanalysis manuscript is the agregation/reanalysis of previously published data. 
+Some of the rules are design for **meta-analysis** manuscripts. A meta-analysis manuscript is the aggregation/reanalysis of previously published data. 
 
 ### Public Data Deposition
 
@@ -87,7 +87,7 @@ Category: Silver
 Description: The **processed** result files (ie. search result files indicating identified PSMs, peptides, and proteins) are deposited in the same public repository as the raw data.
 Fields: all   
 
-Name: For metanalysis papers, the identifiers of all reanalyzed datasets are mentioned in the manuscript    
+Name: For meta-analysis papers, the identifiers of all reanalyzed datasets are mentioned in the manuscript    
 Category: Bronze    
 Description: For meta-analysis manuscripts where multiple public datasets are reanalyzed with a different approach or bioinformatics workflow, the identifier and the publication of each of these datasets should be cited in the manuscript.    
 Fields: all    
