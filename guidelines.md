@@ -76,7 +76,7 @@ Fields: all
 
 Name: Linked to matched data, e.g. transcriptomics is provided  
 Category: Silver  
-Description: The accession of the complementary omics data should be provided in the main manuscript. This data should be 
+Description: The accession of the complementary omics data should be provided in the main manuscript. These data should be 
 available in another public repository (e.g. RNA-seq dataset in ArrayExpress). 
 Example: [PXD008960](https://www.ebi.ac.uk/pride/archive/projects/PXD008960) by Ren *et al.* is an example of a proteo-genomics study where RNA-seq data
 is linked to proteomics data.
