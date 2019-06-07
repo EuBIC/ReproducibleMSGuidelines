@@ -68,7 +68,7 @@ Category: Bronze
 Description: 
 Fields: all     
 
-Name: The data must be available at the time of submission for review and must be available publically at the time of publication.
+Name: The data must be available at the time of submission for review and must be available publicly at the time of publication.
 Category: Bronze  
 Description: The assessment of raw data, or at least the way the data was submitted, is vital to the review process of a scientific publication. This
 allows reviewers to ensure that the data was deposited in a re-usable way.
@@ -82,7 +82,7 @@ Example: [PXD008960](https://www.ebi.ac.uk/pride/archive/projects/PXD008960) by 
 is linked to proteomics data.
 Fields: all   
 
-Name: The Processed data is deposited in a public repository  
+Name: The processed data is deposited in a public repository  
 Category: Silver    
 Description: The **processed** result files (ie. search result files indicating identified PSMs, peptides, and proteins) are deposited in the same public repository as the raw data.
 Fields: all   
@@ -97,23 +97,23 @@ Category: Silver
 Description:    
 Fields: Proteomics, ProteoGenomics  
 
-Name: The mass spectra are provided in the HUPO-PSI standard file format mzML.  
+Name: The mass spectra are provided in the HUPO-PSI standard file format mzML  
 Category: Gold   
 Description: [mzML](http://www.psidev.info/mzML) is a HUPO-PSI data format that store mass spectrometry data (e.g mass spectra, chromatograms) using controlled vocabulary terms. mzML, is a well tested open-source and XML-based format.   
 Fields: Proteomics, ProteoGenomics, Metabolomics, Lipidomics
 
-Name: The identification information (PSMs / Petides / Proteins) are provided in the HUPO-PSI format mzIdentML or mzTab.  
+Name: The identification information (PSMs / Petides / Proteins) are provided in the HUPO-PSI format mzIdentML or mzTab  
 Category: Gold  
 Description: This relates to the search results. As most proteomics search engines support [mzIdentML](http://www.psidev.info/mzidentml) and [mzTab](http://www.psidev.info/mztab), the files generated
 by the search engine should be uploaded to the same repository as the mass spectrometer's raw data.
 Fields: Proteomics, ProteoGenomics  
 
-Name: The Quantitative information is made available in the HUPO-PSI standard file format mzTab.   
+Name: The quantitative information is made available in the HUPO-PSI standard file format mzTab   
 Category: Gold  
 Description: [mzTab](http://www.psidev.info/mztab) is a HUPO-PSI standard file fomat that store proteomics and metabolomics identification and quantification results including: Peptide spectrum matches, Peptides, metabolites and proteins. 
 Fields: Proteomics, ProteoGenomics, Metabolomics  
 
-Name: Samples are annotated with metadata within the HUPO-PSI files (mzTab) or other standards for experimental design such as IsaTab.  
+Name: Samples are annotated with metadata within the HUPO-PSI files (mzTab) or other standards for experimental design such as IsaTab  
 Category: Gold  
 Description:  
 Fields: Proteomics, ProteoGenomics, Metabolomics, Lipidomics
@@ -154,7 +154,7 @@ Category: Bronze
 Description: This refers to software that is developed by the authors / research group / institute.
 Fields: all    
 
-Name: If the software is made publically available, downloads for specific versions of the software are provided, which include the exact version used in the manuscript
+Name: If the software is made publicly available, downloads for specific versions of the software are provided, which include the exact version used in the manuscript
 Category: Bronze     
 Description: The way to distribute the software must support to download specific versions of the software to enable researchers to reproduce the exact same results.
 Fields: all    
@@ -169,7 +169,7 @@ Category: Bronze
 Description: As shown by [DiTommaso et al](https://www.nature.com/articles/nbt.3820) the choice of operating system may have a considerable effect on the generated results even if the same software was used.
 Fields: all    
 
-Name: Newly developed software/custom scripts are made publically available and deposited to a public code hosting platform
+Name: Newly developed software/custom scripts are made publicly available and deposited to a public code hosting platform
 Category: Silver    
 Description: All software, including custom scripts (see above) should ideally be deposited at a public hosting platform, such as
  GitHub, Bitbucket, or GitLab. This should ensure the long-term availability of the software as well as the option to enable researchers
@@ -218,7 +218,7 @@ Category: Bronze
 Description: This should include all settings for signal detection (such as MS and MS/MS peak picking, deisotoping, feature detection) settings if available    
 Fields: all    
 
-Name: If the software used is not publically available, the processed RAW data is deposited alongside the original RAW data
+Name: If the software used is not publicly available, the processed RAW data is deposited alongside the original RAW data
 Category: Bronze  
 Description: This is only required if custom software was used to process the RAW data.
 Fields: all 
@@ -235,7 +235,7 @@ Fields: all
 Name: Un-curated data is made available alongside the final one    
 Category: Gold    
 Description: If different data than the original RAW files were used as starting point for the manual curation step, this data should also be made
-publically available.
+publicly available.
 Fields: all   
 
 ### Search MS-based Proteomics
@@ -257,12 +257,12 @@ Fields:  Proteomics, ProteoGenomics
 
 Name: Custom spectral libraries should be publicly available
 Category: Bronze   
-Description: If custom spectral libraries are used for peptide / protein identification, the libraries should be deposited in the public repository. If the libraries are publically available, the source, version (if available) or date of download should be mentioned in the manuscript.
+Description: If custom spectral libraries are used for peptide / protein identification, the libraries should be deposited in the public repository. If the libraries are publicly available, the source, version (if available) or date of download should be mentioned in the manuscript.
 Fields: Proteomics, ProteoGenomics  
 
 Name: The search engine(s) including their exact versions is/are specified  
 Category: Bronze  
-Description: During the identification step a `search engine` is used to map the obtained mass spectra to the corresponding peptide sequence. In this rule, we recommended to report in the main manuscript the software version.   
+Description: During the identification step a `search engine` is used to map the obtained mass spectra to the corresponding peptide sequence. In this rule, we recommend to report the software version in the main manuscript.   
 Fields: Proteomics, ProteoGenomics
 
 Name: All relevant, non-default settings, such as precursor ion tolerance, fragment ion tolerance, in-silico digestion rule (ie. enzyme), allowed missed cleavages, static and variable post-translational modifications are specified  
@@ -330,7 +330,7 @@ Category: Bronze
 Description: This includes the information whether the test is one- or two-sided, paired or unpaired, as well as all additional parameters passed to the test.
 Fields: all
 
-Name: The method used to correct for multiple testing is specified.   
+Name: The method used to correct for multiple testing is specified   
 Category: Bronze   
 Description: If correction for multiple testing was not performed, this needs to be explicitly justified. 
 Fields: all
@@ -348,10 +348,10 @@ Fields: all
 
 Name: If the software supports the export of the statistical analysis steps (for example R scripts) these are made available for review  
 Category: Silver   
-Description: We recommend the use of [Jupyter notebooks](https://jupyter.org) to record share a complete analysis workflow.
+Description: We recommend the use of [Jupyter notebooks](https://jupyter.org) to record and share a complete analysis workflow.
 Fields: all
 
-Name: Any transformation of data (e.g. log transformation) manually or as part of a software function/test is specified including the order that these transformations were performed   
+Name: Any transformation of data (e.g., log transformation) manually or as part of a software function/test is specified including the order that these transformations were performed   
 Category: Silver  
 Description:   
 Fields: Proteomics, ProteoGenomics   
