@@ -139,7 +139,7 @@ SectionDescription: This section refers to the requirements of how the bioinform
 
 Name: All used software is named including the exact version and the availability
 Category: Bronze    
-Description: The used software must be unambiguously named. This includes, for example, the used download link for public software or reference to the company.
+Description: The used software must be unambiguously named. This includes, for example, the used download link for public software (including the citation of the corresponding publication if applicable) or reference to the company.
 The provided information should be sufficient for anyone to retrieve the exact same piece of software (if still available). 
 Fields: all   
 
