@@ -200,7 +200,6 @@ Category: Bronze
 Description:
 Fields: all   
 
-
 Name: Workflow files are deposited in the same repository as the public data or the software or submitted as supplementary data   
 Category: Silver  
 Description: In case of newly developed software that integrates into a workflow system, such a workflow file can be distributed  as a test suite for the
@@ -208,6 +207,29 @@ software package.
 Example: The ProteomeDiscoverer nodes developed by the Protein Chemistry Facility at the IMP provide example workflows together with their respective nodes.
 See the [MSAmanda node](http://ms.imp.ac.at/index.php?action=ms-amanda) as an example ([Dorfer et al. J Proteome Res. 2014, 13(8):3679-84](http://pubs.acs.org/articlesonrequest/AOR-6DyVQ3j4YTcGXyaskJvi))
 Fields: all   
+
+### Containers
+
+SectionDescription: This section addresses special requirements when using containerized software (such as Docker containers).
+
+Name: If containers are used in the analysis, they should be referenced following, for example, the BioContainers guidelines
+Category: Bronze
+Description: If containers, such as Docker or Singularity containers, are used in the analysis
+they should be referenced through stable version numbers. This explicitly relates to not
+using the ":latest" tag for Docker images as these are bound to change upon new releases
+of the software. Detailed suggestions can be found in the BioContainers documentation
+Fields: all
+
+Name: If containers are used in the analysis, these should be available in a public repository using non-personal namespaces
+Category: Silver
+Description: If containers, such as Docker or Singularity containers, are used in the analysis
+they should be available through a public repository, such as Docker Hub. The namespace used to make this image publicly available should not be under a "private", user-based namespace but should use some kind of institutional namespace where long-term availability is ensured. This addresses the risk, that if private namespaces are used and the person changes careers, the namespace might be deleted and the images thus lost.
+Fields: all
+
+Name: Containers should be available in dedicated repositories such as BioContainers
+Category: Gold
+Description: Dedicated namespaces for bioinformatics tools ensure minimum standards of the containers and their long-term availability. Additionally, they have mechanisms in place to also support a wider range of platforms, such as BioConda.
+Fields: all
 
 ### RAW File Processing
 
