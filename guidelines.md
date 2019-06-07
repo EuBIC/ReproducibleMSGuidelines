@@ -346,15 +346,15 @@ Category: Bronze
 Description:    
 Fields: all
 
+Name: Any transformation of data (e.g., log transformation) manually or as part of a software function/test is specified including the order that these transformations were performed   
+Category: Bronze  
+Description:   
+Fields: Proteomics, ProteoGenomics   
+
 Name: If the software supports the export of the statistical analysis steps (for example R scripts) these are made available for review  
 Category: Silver   
 Description: We recommend the use of [Jupyter notebooks](https://jupyter.org) to record and share a complete analysis workflow.
 Fields: all
-
-Name: Any transformation of data (e.g., log transformation) manually or as part of a software function/test is specified including the order that these transformations were performed   
-Category: Silver  
-Description:   
-Fields: Proteomics, ProteoGenomics   
 
 Name: If a model with multiple parameters is created, the formula for the said model is declared  
 Category: Silver  
