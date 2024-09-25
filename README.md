@@ -1,5 +1,8 @@
 # Minimal Guidelines for Reproducible MS-based Research
 
+> [!WARNING]
+> This project is archived and thus not updated anymore. If you are interested to revive this project, please contact us at [info@eubic-ms.org](mailto:info@eubic-ms.org). 
+
 This project aims at defining a set of guidelines to report mass spectrometry-based experiments in a reproducible fashion.
 
 To view the guidelines, use https://eubic.github.io/ReproducibleMSGuidelines. This uses a JavaScript application to render the actual `guidelines.md` document. This rendering tool can also be used offline when downloading the repositories content and opening the `index.html` file.
